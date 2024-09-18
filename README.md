@@ -1,6 +1,6 @@
-# My Personal Project
+# My term Project
 
-## A subtitle
+## Food Ordering Application
 
 A *bulleted* list:
 - item 1
