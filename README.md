@@ -10,7 +10,7 @@ Having effective and efficient communication to stuffs in restaurants is almost 
 the circumstance that I do not know how to pronounce the food name correctly. I have to repeat myself multiple times to have effective
 communication with stuffs. Therefore, I choose this project to improve the efficiency of communication of food ordering in restaurants.
 
-## user stories
+## User Stories
 - As a stuff, I want to create a new item with specified name, price, and stock.
 - As a stuff, I want to add items to the item collection.
 - As a stuff, I want to add the stock to a specified item.
