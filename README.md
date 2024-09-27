@@ -2,8 +2,8 @@
 
 ## Proposal
  
-The application is used for food ordering in restaurants. It can hold and manage all items the restaurants provide, and it allows customers to
-order items on this application. Stuffs can add and remove items to this application, thay can also manage the list of orders from customers.
+The application is used for food ordering in restaurants. It can hold and manage all items the restaurants provide, and it allows **customers** to
+order items on this application. **Stuffs** can add and remove items to this application, thay can also manage the list of orders from customers.
 Customers can order these provided items on this application. 
 
 Having effective and efficient communication to stuffs in restaurants is almost impossible for me, espacially in the noisy environment or under
