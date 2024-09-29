@@ -2,6 +2,7 @@ package model;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +17,8 @@ public class TestAllItems {
 
     @Test
     void testConstructor() {
-        assertEquals(null, allitems.getAllItems());
+        ArrayList<Item> empty = new ArrayList<>();
+        assertEquals(empty, allitems.getAllItems());
     }
 
     @Test
@@ -75,6 +77,7 @@ public class TestAllItems {
         allitems.addItem(itm2);
         assertEquals(itm1, allitems.findItem("item#1"));
         assertEquals(itm2, allitems.findItem("item#2"));
+        assertEquals(null, allitems.findItem("item#3"));
     }
 
     @Test
