@@ -62,6 +62,12 @@ public class Item {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: set the order amount to zero
+    public void setOrderAmountZero() {
+
+    }
+
     public String getName() {
         return name;
     }
