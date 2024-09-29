@@ -13,19 +13,18 @@ public class Order {
         // stub
     }
 
-    //REQUIRES: the  item based on the given item name exists in AllItems and amount>0
+    //REQUIRES: the item exists in AllItems and amount>0
     //MODIFIES: this, Item, AllItems
-    //EFFECTS: add the item based on the given item name with given amount and decrease the 
+    //EFFECTS: add the item with given amount and decrease the 
     //stockAmount by amount
     public void addItem(Item item, int amount) {
         //stub
     }
 
-    //REQUIRES: the the item based on the given item name exists in ArrayList of ordered items and amount>0
-    //MODIFIES: this
+    //MODIFIES: this, Item, Allitems
     //EFFECTS: remove the item based on the given item name and increase the 
-    //stockAmount by orderAmount
-    public void removeItem() {
+    //stockAmount by orderAmount if the item exists in these ordered items, otherwise do nothing
+    public void removeItem(String itemName) {
         //stub
     }
 
@@ -51,6 +50,12 @@ public class Order {
     //EFFECTS: complete an order
     public void completeOrder() {
         //stub
+    }
+
+    // EFFECTS: produce the item corresponding to the itemName in these ordered items, return
+    // null if the item corresponding to the itemName does not exist in these ordered items
+    public Item findItemInOrder(String itemName) {
+        return null;
     }
 
     public int getOrderID() {
