@@ -11,6 +11,13 @@ public class OrderList {
         //stub
     }
 
+    //REQUIRE: the status of order is true 
+    //MODIFIES: OrderList
+    //EFFECTS: add the finished order to order list
+    public void addToOrderList(Order order){
+        //stub
+    }
+
     //EFFECTS: print the receipt of all order in String in OrderList
     public String displayOrderList() {
         return "";

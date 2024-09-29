@@ -15,7 +15,7 @@ public class Order {
 
     //REQUIRES: the item exists in AllItems and amount>0
     //MODIFIES: this, Item, AllItems
-    //EFFECTS: add the item with given amount and decrease the 
+    //EFFECTS: add the item to the order list with given amount and decrease the 
     //stockAmount by amount
     public void addItem(Item item, int amount) {
         //stub
@@ -36,13 +36,6 @@ public class Order {
     //EFFECTS: produce the list of all item and the total price in String, in a consistent format
     public String printReceipt() {
         return "";
-    }
-
-    //REQUIRE: the status of order is true 
-    //MODIFIES: OrderList
-    //EFFECTS: add the finished order to order list
-    public void addToOrderList(Order order){
-        //stub
     }
 
     //REQUIRE: the status of order is false
