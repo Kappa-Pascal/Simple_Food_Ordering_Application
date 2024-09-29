@@ -26,9 +26,9 @@ public class AllItems {
     }
 
     // REQUIRES: the given item exists
-    // MODIFIES: this Item
-    // EFFECTS: mutate the name and price of an item
-    public void mutateItem(Item item) {
+    // MODIFIES: this, Item
+    // EFFECTS: mutate the name and price of an item 
+    public void mutateItem(Item item,String newName,double newPrice) {
         //stub
     }
 
