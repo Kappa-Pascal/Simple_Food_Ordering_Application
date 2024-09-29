@@ -61,4 +61,13 @@ public class TestItem {
         itm1.determineAvailbty();
         assertTrue(itm1.getAvailbty());
     }
+
+    @Test
+    void testSetOrderAmountZero() {
+        itm1.orderItem(5);
+        assertEquals(5, itm1.getOrderAmount());
+        assertEquals(20 - 5, itm1.getStockAmount());
+        itm1.setOrderAmountZero();
+        assertEquals(0, itm1.getOrderAmount());
+    }
 }
