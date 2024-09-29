@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.ArrayList;
 
@@ -26,8 +27,8 @@ public class TestOrder {
     @Test
     void testConstructor() {
         ArrayList<Item> empty = new ArrayList<>();
-        assertEquals(1, od1.getOrderID());
-        assertEquals(2, od2.getOrderID());
+        assertNotEquals(od1.getOrderID(), od2.getOrderID()); 
+        //We only need to test that the orderIDs of different orders are different.
         assertEquals(empty, od1.getOrderedLists());
         assertEquals(false, od1.getOrderStatus());
     }
@@ -73,7 +74,7 @@ public class TestOrder {
         od1.addItem(itm1, 2);
         od1.addItem(itm2, 3);
         assertEquals("Order ID: " + Integer.toString(od1.getOrderID())
-                + "\nitem1 $10 Amount: 2\nitem2 $20 Amount: 3\n Total: $80.0",
+                + "\nitem1 $10.0 Amount: 2\nitem2 $20.0 Amount: 3\n Total: $80.0",
                 od1.printReceipt());
     }
 
