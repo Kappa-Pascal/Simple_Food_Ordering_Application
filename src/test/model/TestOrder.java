@@ -72,7 +72,8 @@ public class TestOrder {
     void testPrintReceipt() {
         od1.addItem(itm1, 2);
         od1.addItem(itm2, 3);
-        assertEquals("item1 $10 Amount: 2\nitem2 $20 Amount: 3\n Total: $80.0",
+        assertEquals("Order ID: " + Integer.toString(od1.getOrderID())
+                + "\nitem1 $10 Amount: 2\nitem2 $20 Amount: 3\n Total: $80.0",
                 od1.printReceipt());
     }
 
