@@ -16,7 +16,7 @@ public class TestAllItems {
 
     @Test
     void testConstructor() {
-        assertEquals(null, allitems);
+        assertEquals(null, allitems.getAllItems());
     }
 
     @Test
