@@ -6,24 +6,33 @@ import java.util.ArrayList;
 
 public class OrderList {
 
-    //EFFECTS: initialize an empty ArrayList of Order
+    ArrayList<Order> orderList;
+
+    // EFFECTS: initialize an empty ArrayList of Order
     public OrderList() {
-        //stub
+        orderList = new ArrayList<>();
     }
 
-    //REQUIRE: the status of order is true 
-    //MODIFIES: OrderList
-    //EFFECTS: add the finished order to order list
-    public void addToOrderList(Order order){
-        //stub
+    // REQUIRE: the status of order is true
+    // MODIFIES: OrderList
+    // EFFECTS: add the finished order to order list
+    public void addToOrderList(Order order) {
+        orderList.add(order);
     }
 
-    //EFFECTS: print the receipt of all order in String in OrderList
+    // EFFECTS: print the receipt of all order in String in OrderList
     public String displayOrderList() {
-        return "";
+        int counter = 0;
+        String res = "";
+        for (Order odr : orderList) {
+            counter++;
+            res += "\n--- Order #" + Integer.toString(counter) + " ---\n" + odr.printReceipt();
+        }
+        res += "\n--- End ---\n";
+        return res;
     }
 
     public ArrayList<Order> getOrderList() {
-        return null;
+        return orderList;
     }
 }
