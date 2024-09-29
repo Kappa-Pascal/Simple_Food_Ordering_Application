@@ -54,8 +54,8 @@ public class TestOrderList {
         od2.addItem(itm1, 4);
         od2.completeOrder();
         ol1.addToOrderList(od2);
-        assertEquals("--- Order #1 ---\n" + od1.printReceipt()
-                + "--- Order #2 ---\n" + od2.printReceipt()
-                + "--- End ---", ol1.displayOrderList());
+        assertEquals("\n--- Order #1 ---\n" + od1.printReceipt()
+                + "\n--- Order #2 ---\n" + od2.printReceipt()
+                + "\n--- End ---\n", ol1.displayOrderList());
     }
 }
