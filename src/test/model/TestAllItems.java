@@ -83,6 +83,6 @@ public class TestAllItems {
         Item itm2 = new Item("item#2", 20.0, 30);
         allitems.addItem(itm1);
         allitems.addItem(itm2);
-        assertEquals("item#1 $10.0\nitem#2 $20.0", allitems.printItems());
+        assertEquals("item#1 $10.0\nitem#2 $20.0\n", allitems.printItems());
     }
 }
