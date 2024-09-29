@@ -6,43 +6,55 @@ import java.util.ArrayList;
 // regardless of its availibility.
 
 public class AllItems {
+    private ArrayList<Item> allItems;
 
     // EFFECTS: initialize an arrayList of items
     public AllItems() {
-        //stub
+        this.allItems = new ArrayList<>();
     }
 
     // MODIFIES: this
     // EFFECTS: add an item to AllItems
     public void addItem(Item item) {
-        //stub
+        allItems.add(item);
     }
 
     // REQUIRES: the given item exists
     // MODIFIES: this
-    // EFFECTS: remove an item in AllItems 
+    // EFFECTS: remove an item in AllItems
     public void removeItem(Item item) {
-        //stub
+        allItems.remove(item);
     }
 
     // REQUIRES: the given item exists
     // MODIFIES: this, Item
-    // EFFECTS: mutate the name and price of an item 
-    public void mutateItem(Item item,String newName,double newPrice) {
-        //stub
+    // EFFECTS: mutate the name and price of an item
+    public void mutateItem(Item item, String newName, double newPrice) {
+        item.setName(newName);
+        item.setPrice(newPrice);
     }
 
-    // EFFECTS: produce the item corresponding to the itemName, otherwise return null 
+    // EFFECTS: produce the item corresponding to the itemName, return
+    // null if the item corresponding to the itemName does not exist
     public Item findItem(String itemName) {
+        for (Item itm : allItems) {
+            if (itm.getName().equals(itemName)) {
+                return itm;
+            }
+        }
         return null;
     }
 
     // EFFECTS: produce the list of all items in String, in a consistent format
     public String printItems() {
-        return "";
+        String res = "";
+        for (Item itm : allItems) {
+            res += (itm.getName() + " $" + Double.toString(itm.getPrice()) + "\n");
+        }
+        return res;
     }
 
     public ArrayList<Item> getAllItems() {
-        return null;
+        return allItems;
     }
 }
