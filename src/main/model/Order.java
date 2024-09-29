@@ -36,7 +36,9 @@ public class Order {
     // otherwise do nothing
     public void removeItem(String itemName) {
         Item res = findItemInOrder(itemName);
-        if (!res.equals(null)) {
+        if (res == null) {
+            return;
+        } else {
             orderedItems.remove(res);
             res.addstock(res.getOrderAmount());
             res.setOrderAmountZero();
