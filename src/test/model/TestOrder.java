@@ -59,6 +59,11 @@ public class TestOrder {
         assertEquals(1, od1.getOrderedLists().size());
         assertEquals(0, itm1.getOrderAmount());
         assertEquals(20, itm1.getStockAmount());
+        od1.removeItem("item3");
+        assertEquals("item2", od1.getOrderedLists().get(0).getName());
+        assertEquals(1, od1.getOrderedLists().size());
+        assertEquals(0, itm1.getOrderAmount());
+        assertEquals(20, itm1.getStockAmount());
     }
 
     @Test
