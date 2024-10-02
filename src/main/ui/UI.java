@@ -7,6 +7,8 @@ import model.OrderList;
 
 import java.util.Scanner;
 
+//TODO: add class level documents in UI class and unit test classes
+//TODO: modify user story
 public class UI {
     private AllItems allItems;
     private OrderList orderList;
@@ -58,6 +60,7 @@ public class UI {
         }
     }
 
+    // MODIFIES: this, Item, AllItems
     // EFFECTS: display the menu of UI for stuff and allow stuff to realize user
     // stories of stuffs
     public void stuffUI() {
@@ -94,7 +97,8 @@ public class UI {
             }
         }
     }
-
+    
+    // MODIFIES: this, Item, AllItems, Order, OrderList
     // EFFECTS: display the menu of UI for customers and allow customers to realize
     // user stories
     public void customerUI() {
@@ -153,6 +157,7 @@ public class UI {
         }
     }
 
+    // MODIFIES: this, item, allItems
     // EFFECTS: display the ui of adding items in stuff menu
     public void addItemStuffUI() {
         System.out.println("Input the name of item");
@@ -165,6 +170,7 @@ public class UI {
         allItems.addItem(item);
     }
 
+    // MODIFIES: this, item, allItemss 
     // EFFECTS: display the ui of adding stock in stuff menu
     public void addStockStuffUI() {
         System.out.println("Input the name of item you want to add stock to");
@@ -178,6 +184,7 @@ public class UI {
         }
     }
 
+    // MODIFIES: this, item, allItems
     // EFFECTS: display the ui of removing items in stuff menu
     public void removeItemStuffUI() {
         System.out.println("Input the name of item you want to remove");
@@ -189,7 +196,8 @@ public class UI {
         }
     }
 
-    // EFFECTS: display the ui of adding stock in stuff menu
+    // MODIFIES: this, Item, Allitems
+    // EFFECTS: display the ui of mutating items in stuff menu
     public void mutateItemStuffUI() {
         System.out.println("Input the name of item you want to mutate");
         String name = in.nextLine();
@@ -204,6 +212,7 @@ public class UI {
         }
     }
 
+    // MODIFIES: this, Item, Allitems, Order
     // EFFECTS: display the ui of adding an item from the item list to the order
     public void addItemCustomerUI() {
         System.out.println("Input the name of item you want to order");
@@ -221,6 +230,7 @@ public class UI {
         }
     }
 
+    // MODIFIES: this, Item, Allitems, Order
     // EFFECTS: display the ui of removing an item from the item list from the order
     public void removeItemCustomerUI() {
         System.out.println("Input the name of item you want to remove");
@@ -228,6 +238,7 @@ public class UI {
         order.removeItem(name);
     }
 
+    // MODIFIES: this, Order, OrderList
     // EFFECTS: display the ui of finishing order
     public void finishOrderUI() {
         order.completeOrder();
