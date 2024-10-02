@@ -14,12 +14,13 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - As a stuff, I want to create a new item with specified name, price, and stock.
 - As a stuff, I want to add items to the item collection.
 - As a stuff, I want to add the stock to a specified item.
-- As a stuff, I want to receive reminder if the stock is not enough.
+- As a stuff, I want to mutate the name and price of a given item.
 - As a stuff, I want to remove items from the the item collection.
+- As a stuff, I want to view all items I am offering.
 - As a customer, I want to view all items that stuffs offer.
 - As a customer, I want to add items to my order.
 - As a customer, I want to see to total price of my order.
 - As a customer, I want to remove items from my order.
-- As a customer, I want to print receipt after finishing order.
+- As a customer, I want to see the printed receipt during the order.
 - As a customer, I want to add my order to the collect of orders after finishing order.
 - As a stuff, I want to see the collect of orders from customers.

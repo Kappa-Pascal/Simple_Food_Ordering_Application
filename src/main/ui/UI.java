@@ -7,8 +7,7 @@ import model.OrderList;
 
 import java.util.Scanner;
 
-//TODO: modify user story
-
+// TODO: Ask TA to make sure whether I should add @SupressWarnimg("methodlength") tag
 // Represent the UI of both customers and stuffs and display the UI on the console
 public class UI {
     private AllItems allItems;
