@@ -11,6 +11,8 @@ public class UI {
     private AllItems allItems;
     private OrderList orderList;
     private Scanner in;
+    private Order order;
+    private String input;
     private static final String textUI = "Welcome to the Food Ordering Application\n"
             + "s: Go to the stuff memu\n"
             + "c: Go to the customer menu";
@@ -24,6 +26,14 @@ public class UI {
             + "vi: view item list\n"
             + "vo: view order list\n"
             + "ex: go back to the previous menu";
+    private static final String textCustomerUI = "Welcome to the customer menu\n"
+            + "vi: view item list\n"
+            + "od: order a new item\n"
+            + "rm: Remove given item in the order\n"
+            + "gt: get the total price\n"
+            + "pr: print the receipt\n"
+            + "fa: finish order and add this order to the order list\n"
+            + "ex: go back to the previous menu";
 
     // EFFECTS: display the menu that allows user to select type of user
     // (stuff or customer)
@@ -33,7 +43,7 @@ public class UI {
         orderList = new OrderList();
         while (true) {
             System.out.println(textUI);
-            String input = in.nextLine();
+            input = in.nextLine();
             switch (input) {
                 case "s":
                     stuffUI();
@@ -53,7 +63,7 @@ public class UI {
     public void stuffUI() {
         while (true) {
             System.out.println(textStuffUI);
-            String input = in.nextLine();
+            input = in.nextLine();
             switch (input) {
                 case "ai":
                     addItemStuffUI();
@@ -85,7 +95,36 @@ public class UI {
     // EFFECTS: display the menu of UI for customers and allow customers to realize
     // user stories
     public void customerUI() {
-        // System.out.println("customer");
+        order = new Order();
+        while (true) {
+            System.out.println(textCustomerUI);
+            String input = in.nextLine();
+            switch (input) {
+                case "vi":
+                    System.out.println(allItems.printItems());
+                    break;
+                case "od":
+                    addItemCustomerUI();
+                    break;
+                case "rm":
+                    removeItemCustomerUI();
+                    break;
+                case "gt":
+                    System.out.println(order.getTotalPrice());
+                    break;
+                case "pr":
+                    System.out.println(order.printReceipt());
+                    break;
+                case "fa":
+                    finishOrderUI();
+                    return;
+                case "ex":
+                    return;
+                default:
+                    System.out.println(errorMessage);
+                    break;
+            }
+        }
     }
 
     // EFFECTS: produce true if the item with the given name exists in AllItems,
@@ -101,7 +140,11 @@ public class UI {
     // EFFECTS: produce true if the item with the given name exists in a given
     // order, otherwise produce false
     public boolean checkExistanceOrder(String name, Order odr) {
-        return false;
+        if (odr.findItemInOrder(name) == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     // EFFECTS: display the ui of adding items in stuff menu
@@ -151,7 +194,38 @@ public class UI {
             String newName = in.nextLine();
             System.out.println("Input the new price of item");
             double newPrice = in.nextDouble();
-            allItems.mutateItem(allItems.findItem(name),newName,newPrice);
+            allItems.mutateItem(allItems.findItem(name), newName, newPrice);
         }
+    }
+
+    // EFFECTS: display the ui of adding an item from the item list to the order
+    public void addItemCustomerUI() {
+        System.out.println("Input the name of item you want to order");
+        String name = in.nextLine();
+        if (!checkExistanceAllItems(name)) {
+            System.out.println(itemNotFoundMessage);
+        } else {
+            System.out.println("Input the quantity of this item");
+            int amount = in.nextInt();
+            if (amount > allItems.findItem(name).getStockAmount()) {
+                System.out.println("The Stock of this item is not enough");
+                return;
+            }
+            order.addItem(allItems.findItem(name), amount);
+        }
+    }
+
+    // EFFECTS: display the ui of removing an item from the item list from the order
+    public void removeItemCustomerUI() {
+        System.out.println("Input the name of item you want to remove");
+        String name = in.nextLine();
+        order.removeItem(name);
+    }
+
+    // EFFECTS: display the ui of finishing order
+    public void finishOrderUI() {
+        order.completeOrder();
+        orderList.addToOrderList(order);
+        System.out.println("Your order is finished and recorded");
     }
 }
