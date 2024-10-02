@@ -64,6 +64,9 @@ public class UI {
         while (true) {
             System.out.println(textStuffUI);
             input = in.nextLine();
+            if (input.equals("")) {
+                input = in.nextLine();
+            }
             switch (input) {
                 case "ai":
                     addItemStuffUI();
@@ -99,6 +102,9 @@ public class UI {
         while (true) {
             System.out.println(textCustomerUI);
             String input = in.nextLine();
+            if (input.equals("")) {
+                input = in.nextLine();
+            }
             switch (input) {
                 case "vi":
                     System.out.println(allItems.printItems());
