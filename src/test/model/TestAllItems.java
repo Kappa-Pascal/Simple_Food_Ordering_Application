@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+// Test AllItems class
 public class TestAllItems {
     private AllItems allitems;
     private final double error = 0.001;

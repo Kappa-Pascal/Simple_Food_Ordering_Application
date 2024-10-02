@@ -7,8 +7,9 @@ import model.OrderList;
 
 import java.util.Scanner;
 
-//TODO: add class level documents in UI class and unit test classes
 //TODO: modify user story
+
+// Represent the UI of both customers and stuffs and display the UI on the console
 public class UI {
     private AllItems allItems;
     private OrderList orderList;
