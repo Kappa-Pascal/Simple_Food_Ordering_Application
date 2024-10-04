@@ -63,6 +63,7 @@ public class UI {
     // MODIFIES: this, Item, AllItems
     // EFFECTS: display the menu of UI for stuff and allow stuff to realize user
     // stories of stuffs
+    @SuppressWarnings("methodlength")
     public void stuffUI() {
         while (true) {
             System.out.println(textStuffUI);
@@ -101,6 +102,7 @@ public class UI {
     // MODIFIES: this, Item, AllItems, Order, OrderList
     // EFFECTS: display the menu of UI for customers and allow customers to realize
     // user stories
+    @SuppressWarnings("methodlength")
     public void customerUI() {
         order = new Order();
         while (true) {
