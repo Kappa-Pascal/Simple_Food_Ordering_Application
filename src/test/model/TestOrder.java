@@ -1,7 +1,6 @@
 package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 
@@ -15,7 +14,7 @@ public class TestOrder {
     private Order od2;
     private Item itm1;
     private Item itm2;
-    private final double error = 0.001;
+    private Item itm0;
 
     @BeforeEach
     void runBefore() {
@@ -23,13 +22,14 @@ public class TestOrder {
         od2 = new Order();
         itm1 = new Item("item1", 10.0, 20);
         itm2 = new Item("item2", 20.0, 30);
+        itm0 = new Item("item0", 0.11, 40);
     }
 
     @Test
     void testConstructor() {
         ArrayList<Item> empty = new ArrayList<>();
-        assertNotEquals(od1.getOrderID(), od2.getOrderID()); 
-        //We only need to test that the orderIDs of different orders are different.
+        assertEquals(false, od2.getOrderID() == od1.getOrderID());
+        // We only need to test that the orderIDs of different orders are different.
         assertEquals(empty, od1.getOrderedLists());
         assertEquals(false, od1.getOrderStatus());
     }
@@ -70,9 +70,11 @@ public class TestOrder {
     @Test
     void testGetTotalPrice() {
         od1.addItem(itm1, 2);
-        assertEquals(10.0 * 2, od1.getTotalPrice(), error);
+        assertEquals(10.0 * 2, od1.getTotalPrice());
         od1.addItem(itm2, 3);
-        assertEquals(10.0 * 2 + 20.0 * 3, od1.getTotalPrice(), error);
+        assertEquals(10.0 * 2 + 20.0 * 3, od1.getTotalPrice());
+        od1.addItem(itm0, 3);
+        assertEquals(10.0 * 2 + 20.0 * 3 + 0.11 * 3, od1.getTotalPrice());
     }
 
     @Test

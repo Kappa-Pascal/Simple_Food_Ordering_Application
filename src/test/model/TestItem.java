@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 // Test Item class
 public class TestItem {
     private Item itm1;
-    private final double error = 0.001;
 
     @BeforeEach
     void runBefore() {
@@ -20,7 +19,7 @@ public class TestItem {
     @Test
     void testConstructor() {
         assertEquals("item#1", itm1.getName());
-        assertEquals(10.0, itm1.getPrice(), error);
+        assertEquals(10.0, itm1.getPrice());
         assertEquals(20, itm1.getStockAmount());
         assertEquals(0, itm1.getOrderAmount());
         assertTrue(itm1.getAvailbty());
@@ -35,7 +34,7 @@ public class TestItem {
     @Test
     void testSetPrice() {
         itm1.setPrice(15.0);
-        assertEquals(15.0, itm1.getPrice(),error);
+        assertEquals(15.0, itm1.getPrice());
     }
 
     @Test

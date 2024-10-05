@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 // Test AllItems class
 public class TestAllItems {
     private AllItems allitems;
-    private final double error = 0.001;
 
     @BeforeEach
     void runBefore() {
@@ -65,9 +64,9 @@ public class TestAllItems {
         allitems.addItem(itm2);
         allitems.mutateItem(itm1, "item 001", 30.0);
         assertEquals("item 001", allitems.getAllItems().get(0).getName());
-        assertEquals(30.0, allitems.getAllItems().get(0).getPrice(), error);
+        assertEquals(30.0, allitems.getAllItems().get(0).getPrice());
         assertEquals("item 001", itm1.getName());
-        assertEquals(30.0, itm1.getPrice(), error);
+        assertEquals(30.0, itm1.getPrice());
     }
 
     @Test
