@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 // Represents an order with orderID, ArrayList of ordered items,
 // and the status of order.
-
 public class Order {
 
     private static int nextID = 0; // generate the next order ID
@@ -51,7 +50,7 @@ public class Order {
         for (Item itm : orderedItems) {
             total += (itm.getPrice() * (double) itm.getOrderAmount());
         }
-        total = Math.round(total * 100.0) / 100.0; // round the total to 2 decimal places
+        total = ((double) Math.round(total * 100.0)) / 100.0; // round the total to 2 decimal places
         return total;
     }
 

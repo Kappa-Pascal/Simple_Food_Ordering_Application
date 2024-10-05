@@ -2,7 +2,6 @@ package model;
 
 // Represents an item with its name, price, amount of stock, amount
 // of item in an order, and availibitity (availbty).
-
 public class Item {
     private String name;
     private double price;

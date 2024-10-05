@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 
 // Represents the ArrayList of finished orders
-
 public class OrderList {
 
     ArrayList<Order> orderList;

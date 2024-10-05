@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 // Represents the List of ALL items added but not deleted by stuff,
 // regardless of its availibility.
-
 public class AllItems {
     private ArrayList<Item> allItems;
 
