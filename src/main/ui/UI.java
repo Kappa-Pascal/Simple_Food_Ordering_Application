@@ -97,7 +97,7 @@ public class UI {
             }
         }
     }
-    
+
     // MODIFIES: this, Item, AllItems, Order, OrderList
     // EFFECTS: display the menu of UI for customers and allow customers to realize
     // user stories
@@ -171,10 +171,11 @@ public class UI {
         allItems.addItem(item);
     }
 
-    // MODIFIES: this, item, allItemss 
+    // MODIFIES: this, item, allItemss
     // EFFECTS: display the ui of adding stock in stuff menu
     public void addStockStuffUI() {
-        System.out.println("Input the name of item you want to add stock to");
+        System.out.println("Input the name of item you want to add stock to, "
+                + "please do not add the item with the same name twice");
         String name = in.nextLine();
         if (!checkExistanceAllItems(name)) {
             System.out.println(itemNotFoundMessage);
@@ -216,7 +217,8 @@ public class UI {
     // MODIFIES: this, Item, Allitems, Order
     // EFFECTS: display the ui of adding an item from the item list to the order
     public void addItemCustomerUI() {
-        System.out.println("Input the name of item you want to order");
+        System.out.println("Input the name of item you want to order, "
+                + "please do not order the item with the same name twice");
         String name = in.nextLine();
         if (!checkExistanceAllItems(name)) {
             System.out.println(itemNotFoundMessage);
