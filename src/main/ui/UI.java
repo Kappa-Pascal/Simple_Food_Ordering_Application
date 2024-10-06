@@ -35,6 +35,8 @@ public class UI {
             + "pr: print the receipt\n"
             + "fa: finish order and add this order to the order list\n"
             + "ex: go back to the previous menu";
+    private static final String duplicateNameError = "The given name is duplicated to " 
+            + "the name of item you have added before";
 
     // EFFECTS: display the menu that allows user to select type of user
     // (stuff or customer)
@@ -161,8 +163,12 @@ public class UI {
     // MODIFIES: this, item, allItems
     // EFFECTS: display the ui of adding items in stuff menu
     public void addItemStuffUI() {
-        System.out.println("Input the name of item");
+        System.out.println("Input the name of item, please do not add the item with the same name twice");
         String name = in.nextLine();
+        if (checkExistanceAllItems(name)) {
+            System.out.println(duplicateNameError);
+            return;
+        }
         System.out.println("Input the price of item");
         double price = in.nextDouble();
         System.out.println("Input the amount of stock of item");
@@ -174,8 +180,7 @@ public class UI {
     // MODIFIES: this, item, allItemss
     // EFFECTS: display the ui of adding stock in stuff menu
     public void addStockStuffUI() {
-        System.out.println("Input the name of item you want to add stock to, "
-                + "please do not add the item with the same name twice");
+        System.out.println("Input the name of item you want to add stock to");
         String name = in.nextLine();
         if (!checkExistanceAllItems(name)) {
             System.out.println(itemNotFoundMessage);
@@ -206,8 +211,13 @@ public class UI {
         if (!checkExistanceAllItems(name)) {
             System.out.println(itemNotFoundMessage);
         } else {
-            System.out.println("Input the new name of item");
+            System.out.println("Input the new name of item, "
+                    + "please do not add the item with the same name twice");
             String newName = in.nextLine();
+            if (checkExistanceAllItems(newName) && !(newName.equals(name))) {
+                System.out.println(duplicateNameError);
+                return;
+            }
             System.out.println("Input the new price of item");
             double newPrice = in.nextDouble();
             allItems.mutateItem(allItems.findItem(name), newName, newPrice);
@@ -222,6 +232,8 @@ public class UI {
         String name = in.nextLine();
         if (!checkExistanceAllItems(name)) {
             System.out.println(itemNotFoundMessage);
+        } else if (checkExistanceOrder(name,order)) {
+            System.out.println(duplicateNameError);
         } else {
             System.out.println("Input the quantity of this item");
             int amount = in.nextInt();
