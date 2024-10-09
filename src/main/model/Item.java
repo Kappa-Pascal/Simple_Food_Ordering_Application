@@ -9,7 +9,7 @@ public class Item {
     private int orderAmount;
     private boolean availbty;
 
-    // REQUIRE: price >= 0, stockAmount >= 0
+    // REQUIRE: the name is not empty, price >= 0, and stockAmount >= 0
     // EFFECTS: initialize an item with a given name, price, the amount of stock, 0
     // of item in an order
     // and availiblity based on the amount of stock
