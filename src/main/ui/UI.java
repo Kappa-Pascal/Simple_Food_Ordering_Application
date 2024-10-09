@@ -38,6 +38,7 @@ public class UI {
     private static final String duplicateNameError = "The given name is duplicated to " 
             + "the name of item you have added before";
 
+    // MODIFIES: this
     // EFFECTS: display the menu that allows user to select type of user
     // (stuff or customer)
     public UI() {

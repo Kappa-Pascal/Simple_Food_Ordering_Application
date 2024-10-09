@@ -50,7 +50,7 @@ public class Order {
         for (Item itm : orderedItems) {
             total += (itm.getPrice() * (double) itm.getOrderAmount());
         }
-        total = ((double) Math.round(total * 100.0)) / 100.0; // round the total to 2 decimal places
+        total = ((double) Math.round(total * 100.0)) / 100.0; // round the total to at most 2 decimal places
         return total;
     }
 
