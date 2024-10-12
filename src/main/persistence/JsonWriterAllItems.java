@@ -10,6 +10,11 @@ import model.AllItems;
 //            https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonWriterAllItems implements WriterAllItems {
 
+    // EFFECTS: constructs writer to write to destination file
+    public JsonWriterAllItems(String destination) {
+
+    }
+
     // MODIFIES: this
     // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
     // be opened for writing

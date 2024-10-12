@@ -12,6 +12,11 @@ import model.AllItems;
 //            https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonReaderAllItems implements ReaderAllItems {
 
+    // EFFECTS: constructs reader to read from source file
+    public JsonReaderAllItems(String source) {
+
+    }
+
     // EFFECTS: reads AllItems from file and returns it;
     // throws IOException if an error occurs reading data from file    
     @Override
