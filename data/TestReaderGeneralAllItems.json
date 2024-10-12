@@ -1,0 +1,25 @@
+{
+    "allItems": [
+        {
+            "name": "i01",
+            "price": 10.0,
+            "stockAmount": 20,
+            "orderAmount": 0,
+            "availbty": true
+        },
+        {
+            "name": "i02",
+            "price": 20.0,
+            "stockAmount": 30,
+            "orderAmount": 0,
+            "availbty": true            
+        },
+        {
+            "name": "i03",
+            "price": 30.0,
+            "stockAmount": 40,
+            "orderAmount": 0,
+            "availbty": true            
+        }
+    ]
+}
