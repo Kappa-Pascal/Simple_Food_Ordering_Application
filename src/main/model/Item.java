@@ -62,6 +62,12 @@ public class Item {
     }
 
     //MODIFIES: this
+    //EFFECTS: set the order amount to a given amount
+    public void setOrderAmount(int amount) {
+
+    }
+
+    //MODIFIES: this
     //EFFECTS: set the order amount to zero
     public void setOrderAmountZero() {
         orderAmount = 0;
