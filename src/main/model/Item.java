@@ -78,7 +78,13 @@ public class Item {
 
     //EFFECTS: produce a JsonObject from an item instance
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("price", price);
+        json.put("stockAmount", stockAmount);
+        json.put("orderAmount", orderAmount);
+        json.put("availbty", availbty);
+        return json;
     }
 
     public String getName() {
