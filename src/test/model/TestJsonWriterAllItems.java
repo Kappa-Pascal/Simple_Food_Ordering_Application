@@ -58,7 +58,7 @@ public class TestJsonWriterAllItems extends JsonTest {
             //items.addThingy(new Thingy("saw", Category.METALWORK));
             //items.addThingy(new Thingy("needle", Category.STITCHING));
             items.addItem(new Item("w01", 50.0, 60));
-            items.getAllItems().get(0).setOrderAmount(5);
+            items.getAllItems().get(0).orderItem(5);
             items.addItem(new Item("w02", 60.0, 70));
             writer = new JsonWriterAllItems("./data/testWriterGeneralWorkroom.json");
             writer.open();
