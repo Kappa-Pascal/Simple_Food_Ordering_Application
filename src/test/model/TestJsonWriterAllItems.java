@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
-import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import model.Item;
