@@ -70,4 +70,11 @@ public class TestItem {
         itm1.setOrderAmountZero();
         assertEquals(0, itm1.getOrderAmount());
     }
+
+    @Test
+    void testSetOrderAmount() {
+        assertEquals(0, itm1.getOrderAmount());
+        itm1.setOrderAmount(2);
+        assertEquals(2, itm1.getOrderAmount());
+    }
 }

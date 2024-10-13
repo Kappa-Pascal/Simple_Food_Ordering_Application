@@ -61,6 +61,7 @@ public class Item {
         }
     }
 
+    //REQUIRES: amount>=0
     //MODIFIES: this
     //EFFECTS: set the order amount to a given amount
     public void setOrderAmount(int amount) {
