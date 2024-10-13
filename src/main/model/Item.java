@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // Represents an item with its name, price, amount of stock, amount
 // of item in an order, and availibitity (availbty).
 public class Item {
@@ -72,6 +74,11 @@ public class Item {
     //EFFECTS: set the order amount to zero
     public void setOrderAmountZero() {
         orderAmount = 0;
+    }
+
+    //EFFECTS: produce a JsonObject from an item instance
+    public JSONObject toJson() {
+        return null;
     }
 
     public String getName() {
