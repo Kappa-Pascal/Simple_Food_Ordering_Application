@@ -9,9 +9,13 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Represent tests of JSON reader of AllItems
+// The sample JsonSerializationDemo is modeled in this class
+// Citation: “Build software better, together,” GitHub. 
+//            https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class TestJsonReaderAllItems extends JsonTest {
 
-    JsonReaderAllItems reader;
+    private JsonReaderAllItems reader;
 
     @Test
     void testReaderNonExistenceFile() {
