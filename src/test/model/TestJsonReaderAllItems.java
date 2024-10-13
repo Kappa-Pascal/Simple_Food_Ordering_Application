@@ -44,7 +44,7 @@ public class TestJsonReaderAllItems extends JsonTest {
             AllItems items = reader.read();
             assertEquals(3, items.getAllItems().size());
             assertEquals("i02",items.getAllItems().get(1).getName());
-            checkItem("i01", 10.0, 20, 0, false, items.getAllItems().get(0));
+            checkItem("i01", 10.0, 20, 0, true, items.getAllItems().get(0));
         } catch (IOException e) {
             fail("IOException not expected");
         }

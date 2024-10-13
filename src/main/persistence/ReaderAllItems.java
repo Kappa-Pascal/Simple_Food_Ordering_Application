@@ -20,14 +20,14 @@ public interface ReaderAllItems {
     String readFile(String source) throws IOException;
 
     // EFFECTS: parses AllItems from JSON object and returns it
-    AllItems parseWorkRoom(JSONObject jsonObject);
+    AllItems parseOrderList(JSONObject jsonObject);
 
     // MODIFIES: wr
     // EFFECTS: parses AllItems from JSON object and adds them to workroom
-    void addThingies(AllItems wr, JSONObject jsonObject);
+    void addItems(AllItems wr, JSONObject jsonObject);
 
     // MODIFIES: wr
     // EFFECTS: parses Item from JSON object and adds it to workroom
-    void addThingy(AllItems wr, JSONObject jsonObject);
+    void addItem(AllItems wr, JSONObject jsonObject);
 
 }

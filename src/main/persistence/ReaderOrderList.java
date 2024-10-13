@@ -20,14 +20,14 @@ public interface ReaderOrderList {
     String readFile(String source) throws IOException;
 
     // EFFECTS: parses OrderList from JSON object and returns it
-    OrderList parseWorkRoom(JSONObject jsonObject);
+    OrderList parseOrderList(JSONObject jsonObject);
 
     // MODIFIES: wr
     // EFFECTS: parses OrderList from JSON object and adds them to workroom
-    void addThingies(OrderList wr, JSONObject jsonObject);
+    void addOrderLists(OrderList wr, JSONObject jsonObject);
 
     // MODIFIES: wr
     // EFFECTS: parses Order from JSON object and adds it to workroom
-    void addThingy(OrderList wr, JSONObject jsonObject);
+    void addOrderList(OrderList wr, JSONObject jsonObject);
 
 }
