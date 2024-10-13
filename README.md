@@ -22,8 +22,8 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - As a customer, I want to see to total price of my order.
 - As a customer, I want to remove items from my order.
 - As a customer, I want to see the printed receipt during the order.
-- As a customer, I want to add my order to the collect of orders after finishing order.
-- As a stuff, I want to see the collect of orders from customers.
+- As a customer, I want to add my order to the collection of orders after finishing order.
+- As a stuff, I want to see the collection of orders from customers.
 - As a stuff, I want to be able to save all items I am offering to file if I choose so.
 - As a stuff, I want to be able to load all items I am offering to file if I choose so.
 
