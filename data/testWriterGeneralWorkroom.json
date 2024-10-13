@@ -1,0 +1,16 @@
+{"allItems": [
+    {
+        "stockAmount": 55,
+        "orderAmount": 5,
+        "price": 50,
+        "name": "w01",
+        "availbty": true
+    },
+    {
+        "stockAmount": 70,
+        "orderAmount": 0,
+        "price": 60,
+        "name": "w02",
+        "availbty": true
+    }
+]}
