@@ -4,7 +4,11 @@ import model.AllItems;
 import model.Item;
 import model.Order;
 import model.OrderList;
+import persistence.JsonReaderAllItems;
+import persistence.JsonWriterAllItems;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Represent the UI of both customers and stuffs and display the UI on the console
@@ -20,12 +24,14 @@ public class UI {
     private static final String errorMessage = "Invalid input, please try again";
     private static final String itemNotFoundMessage = "The give Item is not found";
     private static final String textStuffUI = "Welcome to the stuff menu\n"
-            + "ai: Add a new item to the Item list\n"
+            + "ai: Add a new item to the item list\n"
             + "as: Add the stock to the given item\n"
             + "rm: Remove given item\n"
             + "mt: mutate given item\n"
             + "vi: view item list\n"
             + "vo: view order list\n"
+            + "sa: save the item list\n"
+            + "ld: load the saved item list and overwrite the current item list\n"
             + "ex: go back to the previous menu";
     private static final String textCustomerUI = "Welcome to the customer menu\n"
             + "vi: view item list\n"
@@ -37,6 +43,7 @@ public class UI {
             + "ex: go back to the previous menu";
     private static final String duplicateNameError = "The given name is duplicated to " 
             + "the name of item you have added before";
+    private static final String path = "./data/savedData.json";
 
     // MODIFIES: this
     // EFFECTS: display the menu that allows user to select type of user
@@ -91,6 +98,12 @@ public class UI {
                     break;
                 case "vo":
                     System.out.println(orderList.displayOrderList());
+                    break;
+                case "sa":
+                    saveItemUI();
+                    break;
+                case "ld":
+                    allItems = loadItemUI();
                     break;
                 case "ex":
                     return;
@@ -264,12 +277,24 @@ public class UI {
 
     //EFFECTS: save the data of AllItem
     public void saveItemUI() {
-
+        JsonWriterAllItems writer = new JsonWriterAllItems(path);
+        try {
+            writer.open();
+        } catch (FileNotFoundException e) {
+            return;
+        }
+        writer.write(allItems);
+        writer.close();
     }
 
     //MODIFIES: this, AllItems
-    //EFFECTS: load the saved data of AllItem
+    //EFFECTS: load the saved data of AllItem and overwrite the AllItem with saved data
     public AllItems loadItemUI() {
-        return null;
+        JsonReaderAllItems reader = new JsonReaderAllItems(path);
+        try {
+            return reader.read();
+        } catch (IOException e) {
+            return null;
+        }
     }
 }
