@@ -35,12 +35,12 @@ public class TestJsonWriterAllItems extends JsonTest {
     void testWriterEmptyWorkroom() {
         try {
             AllItems items = new AllItems();
-            writer = new JsonWriterAllItems("./data/testWriterEmptyWorkroom.json");
+            writer = new JsonWriterAllItems("./data/testWriterEmptyAllItems.json");
             writer.open();
             writer.write(items);
             writer.close();
 
-            reader = new JsonReaderAllItems("./data/testWriterEmptyWorkroom.json");
+            reader = new JsonReaderAllItems("./data/testWriterEmptyAllItems.json");
             items = reader.read();
             ArrayList<Item> empty = new ArrayList<>();
             assertEquals(empty,items.getAllItems());
@@ -59,12 +59,12 @@ public class TestJsonWriterAllItems extends JsonTest {
             items.addItem(new Item("w01", 50.0, 60));
             items.getAllItems().get(0).orderItem(5);
             items.addItem(new Item("w02", 60.0, 70));
-            writer = new JsonWriterAllItems("./data/testWriterGeneralWorkroom.json");
+            writer = new JsonWriterAllItems("./data/testWriterGeneralAllItems.json");
             writer.open();
             writer.write(items);
             writer.close();
 
-            reader = new JsonReaderAllItems("./data/testWriterGeneralWorkroom.json");
+            reader = new JsonReaderAllItems("./data/testWriterGeneralAllItems.json");
             items = reader.read();
            // assertEquals("My work room", items.getName());
             ArrayList<Item> testItems = items.getAllItems();
