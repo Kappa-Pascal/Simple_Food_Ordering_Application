@@ -261,4 +261,15 @@ public class UI {
         orderList.addToOrderList(order);
         System.out.println("Your order is finished and recorded");
     }
+
+    //EFFECTS: save the data of AllItem
+    public void saveItemUI() {
+
+    }
+
+    //MODIFIES: this, AllItems
+    //EFFECTS: load the saved data of AllItem
+    public AllItems loadItemUI() {
+        return null;
+    }
 }
