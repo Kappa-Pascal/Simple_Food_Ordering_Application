@@ -75,13 +75,13 @@ public class TestOrderList {
     }
 
     @Test
-    void testTsEmpty() {
-        assertEquals(false,ol1.isEmpty());
+    void testIsEmpty() {
+        assertEquals(true,ol1.isEmpty());
         od1.addItem(itm1, 2);
         od1.completeOrder();
         ol1.addToOrderList(od1);
-        assertEquals(true, ol1.isEmpty());
-        ol1.removeOrder(od1.getOrderID());
         assertEquals(false, ol1.isEmpty());
+        ol1.removeOrder(od1.getOrderID());
+        assertEquals(true, ol1.isEmpty());
     }
 }
