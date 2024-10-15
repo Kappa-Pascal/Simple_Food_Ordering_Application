@@ -37,12 +37,17 @@ public class OrderList {
     // MODIFIES: this
     // EFFECTS: remove the order with the given orderID
     public void removeOrder(int orderID) {
-        
+        for (Order ol : orderList) {
+            if (ol.getOrderID() == orderID) {
+                orderList.remove(ol);
+                return;
+            }
+        }
     }
 
     // EFFECTS: produce true if the orderList is empty, otherwise produce false
     public boolean isEmpty() {
-        return false;
+        return 0 == orderList.size();
     }
 
 
