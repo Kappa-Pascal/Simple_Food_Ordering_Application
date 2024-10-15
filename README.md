@@ -26,4 +26,6 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - As a stuff, I want to see the collection of orders from customers.
 - As a stuff, I want to be able to save all items I am offering to file if I choose so.
 - As a stuff, I want to be able to load all items I am offering to file if I choose so.
+- As a stuff, I want to delete order based on the given order ID when an order is complete.
+- As a stuff, I want to ensure that the OrderList is empty when quitting the application.
 
