@@ -33,6 +33,19 @@ public class OrderList {
         return res;
     }
 
+    // REQUIRES: the given orderID exists in OrderList
+    // MODIFIES: this
+    // EFFECTS: remove the order with the given orderID
+    public void removeOrder(int orderID) {
+        
+    }
+
+    // EFFECTS: produce true if the orderList is empty, otherwise produce false
+    public boolean isEmpty() {
+        return false;
+    }
+
+
     public ArrayList<Order> getOrderList() {
         return orderList;
     }
