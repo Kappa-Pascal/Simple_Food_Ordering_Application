@@ -72,6 +72,9 @@ public class TestOrderList {
         ol1.removeOrder(od1.getOrderID());
         assertEquals(1,ol1.getOrderList().size());
         assertEquals(od2, ol1.getOrderList().get(0));
+        ol1.removeOrder(-1);
+        assertEquals(1,ol1.getOrderList().size());
+        assertEquals(od2, ol1.getOrderList().get(0));
     }
 
     @Test
