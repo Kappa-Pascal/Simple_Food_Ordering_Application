@@ -59,4 +59,29 @@ public class TestOrderList {
                 + "\n--- Order #2 ---\n" + od2.printReceipt()
                 + "\n--- End ---\n", ol1.displayOrderList());
     }
+
+    @Test
+    void testRemoveOrder() {
+        od1.addItem(itm1, 2);
+        od1.completeOrder();
+        ol1.addToOrderList(od1);
+        od2.addItem(itm1, 4);
+        od2.completeOrder();
+        ol1.addToOrderList(od2);
+        assertEquals(2,ol1.getOrderList().size());
+        ol1.removeOrder(od1.getOrderID());
+        assertEquals(1,ol1.getOrderList().size());
+        assertEquals(od2, ol1.getOrderList().get(0));
+    }
+
+    @Test
+    void testTsEmpty() {
+        assertEquals(false,ol1.isEmpty());
+        od1.addItem(itm1, 2);
+        od1.completeOrder();
+        ol1.addToOrderList(od1);
+        assertEquals(true, ol1.isEmpty());
+        ol1.removeOrder(od1.getOrderID());
+        assertEquals(false, ol1.isEmpty());
+    }
 }
