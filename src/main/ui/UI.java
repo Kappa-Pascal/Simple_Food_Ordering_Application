@@ -297,4 +297,17 @@ public class UI {
             return null;
         }
     }
+
+    //MODIFIES: this, OrderList
+    //EFFECTS: remove the order in the OrderList by the given order id
+    // if the order id exist; otherwise do nothing
+    public void removeOrder() {
+
+    }
+
+    //MODIFIES: this
+    //EFFECTS: produce true if the OrderList is empty; otherwise produce false
+    public boolean isEmpty() {
+        return false;
+    }
 }
