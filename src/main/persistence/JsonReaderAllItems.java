@@ -53,8 +53,8 @@ public class JsonReaderAllItems implements ReaderAllItems {
         return item;
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses AllItems from JSON object and adds them to workroom
+    // MODIFIES: item
+    // EFFECTS: parses AllItems from JSON object to multiple items and adds them to AllItems
     @Override
     public void addItems(AllItems item, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("allItems");
@@ -64,8 +64,8 @@ public class JsonReaderAllItems implements ReaderAllItems {
         }
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses Item from JSON object and adds it to workroom
+    // MODIFIES: item
+    // EFFECTS: parses Item from JSON object and adds it to AllItems
     @Override
     public void addItem(AllItems items, JSONObject jsonObject) {
         String name = jsonObject.getString("name");

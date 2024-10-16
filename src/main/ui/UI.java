@@ -20,7 +20,8 @@ public class UI {
     private String input;
     private static final String textUI = "Welcome to the Food Ordering Application\n"
             + "s: Go to the stuff memu\n"
-            + "c: Go to the customer menu";
+            + "c: Go to the customer menu\n"
+            + "q: Quit the app if the list of the order is empty";
     private static final String errorMessage = "Invalid input, please try again";
     private static final String itemNotFoundMessage = "The give Item is not found";
     private static final String textStuffUI = "Welcome to the stuff menu\n"
@@ -32,6 +33,7 @@ public class UI {
             + "vo: view order list\n"
             + "sa: save the item list\n"
             + "ld: load the saved item list and overwrite the current item list\n"
+            + "ro: remove order in the order list\n"
             + "ex: go back to the previous menu";
     private static final String textCustomerUI = "Welcome to the customer menu\n"
             + "vi: view item list\n"
@@ -52,7 +54,8 @@ public class UI {
         in = new Scanner(System.in);
         allItems = new AllItems();
         orderList = new OrderList();
-        while (true) {
+        boolean state = true;
+        while (state) {
             System.out.println(textUI);
             input = in.nextLine();
             switch (input) {
@@ -62,11 +65,15 @@ public class UI {
                 case "c":
                     customerUI();
                     break;
+                case "q":
+                    state = !isEmpty();
+                    break;
                 default:
                     System.out.println(errorMessage);
                     break;
             }
         }
+        assert (isEmpty() == true);
     }
 
     // MODIFIES: this, Item, AllItems
@@ -104,6 +111,9 @@ public class UI {
                     break;
                 case "ld":
                     allItems = loadItemUI();
+                    break;
+                case "ro":
+                    removeOrderUI();
                     break;
                 case "ex":
                     return;
@@ -301,13 +311,20 @@ public class UI {
     //MODIFIES: this, OrderList
     //EFFECTS: remove the order in the OrderList by the given order id
     // if the order id exist; otherwise do nothing
-    public void removeOrder() {
-
+    public void removeOrderUI() {
+        System.out.println("Input the id of the order you want to remove");
+        int id = in.nextInt();
+        orderList.removeOrder(id);
     }
 
     //MODIFIES: this
     //EFFECTS: produce true if the OrderList is empty; otherwise produce false
     public boolean isEmpty() {
-        return false;
+        if (orderList.isEmpty()) {
+            return true;
+        } else {
+            System.out.println("The order list is not empty, please check the unfinished orders");
+            return false;
+        }
     }
 }
