@@ -3,8 +3,6 @@ package model;
 import java.util.ArrayList;
 
 // Represents the ArrayList of finished orders
-// TODO: add removeOrderList, isempty method
-// TODO: edited user stories, remove unused class and interface
 public class OrderList {
 
     ArrayList<Order> orderList;
