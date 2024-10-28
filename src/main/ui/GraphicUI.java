@@ -15,6 +15,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 // Represent the graphic UI of the project
+// Part of the code is modelled from AlarmSystem
+// Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/AlarmSystem 
 public class GraphicUI extends JFrame {
     private AllItems allItems;
     private OrderList orderList;
@@ -37,7 +39,7 @@ public class GraphicUI extends JFrame {
     // EFFECTS: Display a blank frame
     public void setBlankFrame() {
         desktop = new JDesktopPane();
-        // desktop.addMouseListener();
+        desktop.addMouseListener(new DesktopFocusAction());
         controlPanel = new JInternalFrame("Graphic UI", false, false, false, false);
         controlPanel.setLayout(new BorderLayout());
         setContentPane(desktop);
@@ -51,7 +53,7 @@ public class GraphicUI extends JFrame {
         // EFFECTS: Handle the MouseEvent
         @Override
         public void mouseClicked(MouseEvent e) {
-            
+            GraphicUI.this.requestFocusInWindow();
         }
     }
 
