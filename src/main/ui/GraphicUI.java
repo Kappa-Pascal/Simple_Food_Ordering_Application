@@ -28,13 +28,21 @@ public class GraphicUI extends JFrame {
     public GraphicUI() {
         this.allItems = new AllItems();
         this.orderList = new OrderList();
+        setBlankFrame();
 
+        setVisible(true);
     }
 
     // MODIFIES: this
     // EFFECTS: Display a blank frame
     public void setBlankFrame() {
-
+        desktop = new JDesktopPane();
+        // desktop.addMouseListener();
+        controlPanel = new JInternalFrame("Graphic UI", false, false, false, false);
+        controlPanel.setLayout(new BorderLayout());
+        setContentPane(desktop);
+        setTitle("Food Ordering Application");
+        setSize(WIDTH, HEIGHT);
     }
 
 }
