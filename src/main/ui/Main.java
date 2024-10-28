@@ -7,6 +7,7 @@ public class Main {
     // (stuff or customer)
     public static void main(String[] args) throws Exception {
         //System.out.println("Welcome to my project!");
-        new UI();
+        new ConsoleUI();
+        //new GraphicUI();
     }
 }

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 // Represent the UI of both customers and stuffs and display the UI on the console
-public class UI {
+public class ConsoleUI {
     private AllItems allItems;
     private OrderList orderList;
     private Scanner in;
@@ -50,7 +50,7 @@ public class UI {
     // MODIFIES: this
     // EFFECTS: display the menu that allows user to select type of user
     // (stuff or customer)
-    public UI() {
+    public ConsoleUI() {
         in = new Scanner(System.in);
         allItems = new AllItems();
         orderList = new OrderList();
