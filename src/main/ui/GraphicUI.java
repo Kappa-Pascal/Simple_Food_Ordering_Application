@@ -45,4 +45,14 @@ public class GraphicUI extends JFrame {
         setSize(WIDTH, HEIGHT);
     }
 
+    // Represent a inner class that is used for key handling
+    private class DesktopFocusAction extends MouseAdapter {
+
+        // EFFECTS: Handle the MouseEvent
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            
+        }
+    }
+
 }
