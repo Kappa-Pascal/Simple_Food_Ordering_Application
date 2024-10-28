@@ -12,17 +12,29 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 // Represent the graphic UI of the project
 public class GraphicUI extends JFrame {
     private AllItems allItems;
     private OrderList orderList;
     private Order order;
-    
-    // EFFECT: Display the graphic UI of the project
+    private JDesktopPane desktop;
+    private JInternalFrame controlPanel;
+    private static final int WIDTH = 1000;
+    private static final int HEIGHT = 800;
+
+    // EFFECTS: Display the graphic UI of the project
     public GraphicUI() {
+        this.allItems = new AllItems();
+        this.orderList = new OrderList();
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: Display a blank frame
+    public void setBlankFrame() {
+
+    }
 
 }
