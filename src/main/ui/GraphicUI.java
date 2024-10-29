@@ -71,6 +71,6 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Detect a MouseEvent
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        GraphicUI.this.requestFocusInWindow();
     }
 }
