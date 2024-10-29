@@ -27,6 +27,12 @@ public class GraphicUI extends JFrame implements ActionListener {
     private JInternalFrame controlPanel;
     private JButton addSingleItem;
     private ActionListener actionListener;
+    private Action addSingleItemAction;
+    private Action addMultipleItemAction;
+    private Action removeItemAction;
+    private Action mutateItemAction;
+    private Action saveItemAction;
+    private Action loadItemAction;
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 800;
 
@@ -72,5 +78,12 @@ public class GraphicUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         GraphicUI.this.requestFocusInWindow();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Add buttons in the graphic UI
+    private void addButtonPanel() {
+        JPanel buttonPanel = new JPanel();
+
     }
 }
