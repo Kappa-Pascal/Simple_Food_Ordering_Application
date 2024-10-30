@@ -40,9 +40,9 @@ public class GraphicUI extends JFrame implements ActionListener {
     public GraphicUI() {
         this.allItems = new AllItems();
         this.orderList = new OrderList();
-        this.addSingleItem = new JButton("Add single item");
+        //this.addSingleItem = new JButton("Add single item");
         setBlankFrame();
-        addSingleItem.addActionListener(actionListener);
+        //addSingleItem.addActionListener(actionListener);
         addButtonPanel();
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
@@ -103,9 +103,29 @@ public class GraphicUI extends JFrame implements ActionListener {
     public static String readItemName() {
         String name = JOptionPane.showInputDialog(null,
                 "Item Name?",
-                "Enter Ttem Name:",
+                "Enter Item Name:",
                 JOptionPane.QUESTION_MESSAGE);
         return name;
+    }
+
+    // MODIFIES: this, Item, AllItems
+    // EFFECTS: read the price of the item from user's input
+    public static Double readItemPrice() {
+        String price = JOptionPane.showInputDialog(null,
+                "Item Price?",
+                "Enter Item Price:",
+                JOptionPane.QUESTION_MESSAGE);
+        return 0.0;
+    }
+
+    // MODIFIES: this, Item, AllItems
+    // EFFECTS: read the stock of the item from user's input
+    public static int readItemStock() {
+        String stock = JOptionPane.showInputDialog(null,
+                "Item Stock?",
+                "Enter Item Stock:",
+                JOptionPane.QUESTION_MESSAGE);
+        return 0;
     }
 
     private class AddSingleItemAction extends AbstractAction {
@@ -139,7 +159,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             // JOptionPane.ERROR_MESSAGE);
             // }
             //System.out.println("success");
-            readItemName();
+            String name = readItemName();
         }
     }
 }
