@@ -101,7 +101,11 @@ public class GraphicUI extends JFrame implements ActionListener {
     // MODIFIES: this, Item, AllItems
     // EFFECTS: read the name of the item from user's input
     public static String readItemName() {
-        return "";
+        String name = JOptionPane.showInputDialog(null,
+                "Sensor location?",
+                "Enter sensor location",
+                JOptionPane.QUESTION_MESSAGE);
+        return name;
     }
 
     private class AddSingleItemAction extends AbstractAction {
@@ -120,8 +124,8 @@ public class GraphicUI extends JFrame implements ActionListener {
              * JOptionPane.QUESTION_MESSAGE);
              */
 
-            //The following code displays a String in a new window 
-            //JOptionPane.showMessageDialog(null, String);
+            // The following code displays a String in a new window
+            // JOptionPane.showMessageDialog(null, String);
 
             // AlarmCode alarmCode = new AlarmCode(kp.getCode());
             // kp.clearCode();
@@ -131,7 +135,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             // JOptionPane.showMessageDialog(null, e.getMessage(), "System Error",
             // JOptionPane.ERROR_MESSAGE);
             // }
-            System.out.println("success");
+            //System.out.println("success");
             readItemName();
         }
     }
