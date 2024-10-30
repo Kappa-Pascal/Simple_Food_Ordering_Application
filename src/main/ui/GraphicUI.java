@@ -102,18 +102,21 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: read the name of the item from user's input
     public static String readItemName() {
         String name = JOptionPane.showInputDialog(null,
-                "Sensor location?",
-                "Enter sensor location",
+                "Item Name?",
+                "Enter Ttem Name:",
                 JOptionPane.QUESTION_MESSAGE);
         return name;
     }
 
     private class AddSingleItemAction extends AbstractAction {
 
+        // EFFECTS: Display the name of a botton
         AddSingleItemAction() {
             super("Add a single Item");
         }
 
+        // MODIFIES: this, AllItems
+        // EFFECTS: Add a single item when the "Add a single Item" botton is clicked
         @Override
         public void actionPerformed(ActionEvent evt) {
             // The following code allows users to input a String.
