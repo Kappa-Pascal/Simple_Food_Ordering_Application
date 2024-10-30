@@ -52,6 +52,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         // getContentPane().add(scrollPane);
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     // MODIFIES: this
@@ -88,12 +89,50 @@ public class GraphicUI extends JFrame implements ActionListener {
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 2));
-        buttonPanel.add(new JButton(addSingleItemAction));
+        buttonPanel.add(new JButton(new AddSingleItemAction()));
         buttonPanel.add(new JButton(addMultipleItemAction));
         buttonPanel.add(new JButton(mutateItemAction));
         buttonPanel.add(new JButton(removeItemAction));
         buttonPanel.add(new JButton(saveItemAction));
         buttonPanel.add(new JButton(loadItemAction));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
+    }
+
+    // MODIFIES: this, Item, AllItems
+    // EFFECTS: read the name of the item from user's input
+    public static String readItemName() {
+        return "";
+    }
+
+    private class AddSingleItemAction extends AbstractAction {
+
+        AddSingleItemAction() {
+            super("Add a single Item");
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            // The following code allows users to input a String.
+            /*
+             * String sensorLoc = JOptionPane.showInputDialog(null,
+             * "Sensor location?",
+             * "Enter sensor location",
+             * JOptionPane.QUESTION_MESSAGE);
+             */
+
+            //The following code displays a String in a new window 
+            //JOptionPane.showMessageDialog(null, String);
+
+            // AlarmCode alarmCode = new AlarmCode(kp.getCode());
+            // kp.clearCode();
+            // try {
+            // ac.addCode(alarmCode);
+            // } catch (NotValidCodeException e) {
+            // JOptionPane.showMessageDialog(null, e.getMessage(), "System Error",
+            // JOptionPane.ERROR_MESSAGE);
+            // }
+            System.out.println("success");
+            readItemName();
+        }
     }
 }
