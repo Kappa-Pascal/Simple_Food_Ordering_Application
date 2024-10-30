@@ -43,11 +43,14 @@ public class GraphicUI extends JFrame implements ActionListener {
         this.addSingleItem = new JButton("Add single item");
         setBlankFrame();
         addSingleItem.addActionListener(actionListener);
+        addButtonPanel();
+        controlPanel.setVisible(true);
+        desktop.add(controlPanel);
+        controlPanel.pack();
         // JList<Item> displayList = new JList<>();
         // JScrollPane scrollPane = new JScrollPane(displayList);
         // getContentPane().add(scrollPane);
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
         setVisible(true);
     }
 
@@ -84,6 +87,13 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Add buttons in the graphic UI
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-
+        buttonPanel.setLayout(new GridLayout(3, 2));
+        buttonPanel.add(new JButton(addSingleItemAction));
+        buttonPanel.add(new JButton(addMultipleItemAction));
+        buttonPanel.add(new JButton(mutateItemAction));
+        buttonPanel.add(new JButton(removeItemAction));
+        buttonPanel.add(new JButton(saveItemAction));
+        buttonPanel.add(new JButton(loadItemAction));
+        controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
 }
