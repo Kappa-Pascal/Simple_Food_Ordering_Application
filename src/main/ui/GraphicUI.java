@@ -108,9 +108,10 @@ public class GraphicUI extends JFrame implements ActionListener {
         return name;
     }
 
+    // REQUIRES: input >= 0.0
     // MODIFIES: this, Item, AllItems
     // EFFECTS: read the price of the item from user's input
-    public static Double readItemPrice() {
+    public static Double readItemPrice() throws NumberFormatException {
         double res = 0.0;
         String price = JOptionPane.showInputDialog(null,
                 "Item Price?",
@@ -118,17 +119,19 @@ public class GraphicUI extends JFrame implements ActionListener {
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Double.valueOf(price);
+            return res;
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Invalid Input, please try again",
+            JOptionPane.showMessageDialog(null, e.getMessage() + "\nInvalid Input", "Invalid Input",
                     JOptionPane.ERROR_MESSAGE);
-            readItemPrice();
+            throw e;
         }
-        return res;
+
     }
 
+    // REQUIRES: input >= 0
     // MODIFIES: this, Item, AllItems
     // EFFECTS: read the stock of the item from user's input
-    public static int readItemStock() {
+    public static int readItemStock() throws NumberFormatException {
         int res = 0;
         String stock = JOptionPane.showInputDialog(null,
                 "Item Stock?",
@@ -136,12 +139,12 @@ public class GraphicUI extends JFrame implements ActionListener {
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Integer.valueOf(stock);
+            return res;          
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Invalid Input, please try again",
+            JOptionPane.showMessageDialog(null, e.getMessage() + "\nInvalid Input", "Invalid Input",
                     JOptionPane.ERROR_MESSAGE);
-            readItemStock();
+            throw e;    
         }
-        return res;
     }
 
     private class AddSingleItemAction extends AbstractAction {
@@ -178,6 +181,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             String name = readItemName();
             double price = readItemPrice();
             int stock = readItemStock();
+            System.out.println(price);
             allItems.addItem(new Item(name,price,stock));
         }
     }
