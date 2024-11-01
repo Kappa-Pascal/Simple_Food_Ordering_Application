@@ -139,11 +139,11 @@ public class GraphicUI extends JFrame implements ActionListener {
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Integer.valueOf(stock);
-            return res;          
+            return res;
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, e.getMessage() + "\nInvalid Input", "Invalid Input",
                     JOptionPane.ERROR_MESSAGE);
-            throw e;    
+            throw e;
         }
     }
 
@@ -158,11 +158,11 @@ public class GraphicUI extends JFrame implements ActionListener {
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Integer.valueOf(reps);
-            return res;          
+            return res;
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, e.getMessage() + "\nInvalid Input", "Invalid Input",
                     JOptionPane.ERROR_MESSAGE);
-            throw e;    
+            throw e;
         }
     }
 
@@ -201,7 +201,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             String name = readItemName();
             double price = readItemPrice();
             int stock = readItemStock();
-            allItems.addItem(new Item(name,price,stock));
+            allItems.addItem(new Item(name, price, stock));
         }
     }
 
@@ -210,7 +210,7 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         AddMultipleItemsAction() {
-            super("Add multiple items");            
+            super("Add multiple items");
         }
 
         // MODIFIES: this, AllItems
@@ -223,7 +223,7 @@ public class GraphicUI extends JFrame implements ActionListener {
                 asi.actionPerformed(evt);
             }
         }
-            
+
     }
 
     // Represents the functionality of View Items botton
@@ -235,10 +235,28 @@ public class GraphicUI extends JFrame implements ActionListener {
         }
 
         // MODIFIES: this
-        // EFFECTS: Display the name and the price of items when the "View all added items" botton is clicked
+        // EFFECTS: Display the name and the price of items when the "View all added
+        // items" botton is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(null, "All added items are:\n" + allItems.printItems());
         }
+    }
+
+    // Represents the functionality of Save botton
+    private class SaveAction extends AbstractAction {
+
+        // EFFECTS: Display the name of a botton
+        SaveAction() {
+
+        }
+
+        // MODIFIES: this 
+        // EFFECTS: Save all added items when the "Save" button is clicked       
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+
     }
 }
