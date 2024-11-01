@@ -6,6 +6,7 @@ import model.AllItems;
 import model.Item;
 import model.Order;
 import model.OrderList;
+import persistence.JsonReaderAllItems;
 import persistence.JsonWriterAllItems;
 
 import java.awt.BorderLayout;
@@ -17,6 +18,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 // Represent the graphic UI of the project
 // Part of the code is modelled from AlarmSystem
@@ -97,7 +99,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.add(new JButton(new ViewItemAction()));
         buttonPanel.add(new JButton(removeItemAction));
         buttonPanel.add(new JButton(new SaveAction()));
-        buttonPanel.add(new JButton(loadItemAction));
+        buttonPanel.add(new JButton(new LoadAction()));
         buttonPanel.add(new JButton(removeItemAction));
         buttonPanel.add(new JButton(removeItemAction));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
@@ -278,14 +280,21 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         LoadAction() {
-
+            super("Load");
         }
+
         // MODIFIES: this, AllItems
         // EFFECTS: Load all saved items when the "Load" button is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            JsonReaderAllItems reader = new JsonReaderAllItems(PATH);
+            try {
+                allItems = reader.read();
+                JOptionPane.showMessageDialog(null, "All Saved items are loaded");                
+            } catch (IOException ec) {
+                return;
+            }
         }
 
-    }    
+    }
 }
