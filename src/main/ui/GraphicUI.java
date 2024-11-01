@@ -37,7 +37,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     private Action loadItemAction;
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 800;
-    private static final String path = "./data/savedData.json";
+    private static final String PATH = "./data/savedData.json";
 
     // EFFECTS: Display the graphic UI of the project
     public GraphicUI() {
@@ -260,7 +260,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         // EFFECTS: Save all added items when the "Save" button is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
-            JsonWriterAllItems writer = new JsonWriterAllItems(path);
+            JsonWriterAllItems writer = new JsonWriterAllItems(PATH);
             try {
                 writer.open();
             } catch (FileNotFoundException ec) {
@@ -272,4 +272,20 @@ public class GraphicUI extends JFrame implements ActionListener {
         }
 
     }
+
+    // Represents the functionality of Load botton
+    private class LoadAction extends AbstractAction {
+
+        // EFFECTS: Display the name of a botton
+        LoadAction() {
+
+        }
+        // MODIFIES: this, AllItems
+        // EFFECTS: Load all saved items when the "Load" button is clicked
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+
+    }    
 }
