@@ -6,6 +6,7 @@ import model.AllItems;
 import model.Item;
 import model.Order;
 import model.OrderList;
+import persistence.JsonWriterAllItems;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -15,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 
 // Represent the graphic UI of the project
 // Part of the code is modelled from AlarmSystem
@@ -35,6 +37,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     private Action loadItemAction;
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 800;
+    private static final String path = "./data/savedData.json";
 
     // EFFECTS: Display the graphic UI of the project
     public GraphicUI() {
@@ -88,13 +91,15 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Add buttons in the graphic UI
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(3, 2));
+        buttonPanel.setLayout(new GridLayout(4, 2));
         buttonPanel.add(new JButton(new AddSingleItemAction()));
         buttonPanel.add(new JButton(new AddMultipleItemsAction()));
         buttonPanel.add(new JButton(new ViewItemAction()));
         buttonPanel.add(new JButton(removeItemAction));
-        buttonPanel.add(new JButton(saveItemAction));
+        buttonPanel.add(new JButton(new SaveAction()));
         buttonPanel.add(new JButton(loadItemAction));
+        buttonPanel.add(new JButton(removeItemAction));
+        buttonPanel.add(new JButton(removeItemAction));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
 
@@ -248,14 +253,22 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         SaveAction() {
-
+            super("Save");
         }
 
-        // MODIFIES: this 
-        // EFFECTS: Save all added items when the "Save" button is clicked       
+        // MODIFIES: this
+        // EFFECTS: Save all added items when the "Save" button is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            JsonWriterAllItems writer = new JsonWriterAllItems(path);
+            try {
+                writer.open();
+            } catch (FileNotFoundException ec) {
+                return;
+            }
+            writer.write(allItems);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "All added items are saved");
         }
 
     }
