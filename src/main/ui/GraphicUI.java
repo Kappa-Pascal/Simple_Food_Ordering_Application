@@ -147,6 +147,13 @@ public class GraphicUI extends JFrame implements ActionListener {
         }
     }
 
+    // REQUIRES: input >= 0
+    // MODIFIES: this, Item, AllItems
+    // EFFECTS: read the stock of the item from user's input
+    public static int readReps() throws NumberFormatException {
+        return 0;
+    }
+
     // Represents the functionality of Add Single Item botton
     private class AddSingleItemAction extends AbstractAction {
 
@@ -191,7 +198,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     private class AddMultipleItemsAction extends AbstractAction {
         // EFFECTS: Display the name of a botton
         AddMultipleItemsAction() {
-
+            super("Add multiple items");            
         }
 
         // MODIFIES: this, AllItems
@@ -199,6 +206,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent evt) {
 
-        }        
+        }
+            
     }
 }
