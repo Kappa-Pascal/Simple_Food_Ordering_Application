@@ -115,7 +115,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         double res = 0.0;
         String price = JOptionPane.showInputDialog(null,
                 "Item Price?",
-                "Enter Item Price:",
+                "Enter Item Price: (non-negative number)",
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Double.valueOf(price);
@@ -135,7 +135,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         int res = 0;
         String stock = JOptionPane.showInputDialog(null,
                 "Item Stock?",
-                "Enter Item Stock:",
+                "Enter Item Stock (non-negative integer):",
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Integer.valueOf(stock);
@@ -147,6 +147,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         }
     }
 
+    // Represents the functionality of Add Single Item botton
     private class AddSingleItemAction extends AbstractAction {
 
         // EFFECTS: Display the name of a botton
@@ -184,5 +185,20 @@ public class GraphicUI extends JFrame implements ActionListener {
             System.out.println(price);
             allItems.addItem(new Item(name,price,stock));
         }
+    }
+
+    // Represents the functionality of Add Multiple Items botton
+    private class AddMultipleItemsAction extends AbstractAction {
+        // EFFECTS: Display the name of a botton
+        AddMultipleItemsAction() {
+
+        }
+
+        // MODIFIES: this, AllItems
+        // EFFECTS: Add multiple item when the "Add a single Item" botton is clicked
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+
+        }        
     }
 }
