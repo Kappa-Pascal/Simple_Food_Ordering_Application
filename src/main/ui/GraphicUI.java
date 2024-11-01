@@ -90,7 +90,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 2));
         buttonPanel.add(new JButton(new AddSingleItemAction()));
-        buttonPanel.add(new JButton(addMultipleItemAction));
+        buttonPanel.add(new JButton(new AddMultipleItemsAction()));
         buttonPanel.add(new JButton(mutateItemAction));
         buttonPanel.add(new JButton(removeItemAction));
         buttonPanel.add(new JButton(saveItemAction));
@@ -201,7 +201,6 @@ public class GraphicUI extends JFrame implements ActionListener {
             String name = readItemName();
             double price = readItemPrice();
             int stock = readItemStock();
-            System.out.println(price);
             allItems.addItem(new Item(name,price,stock));
         }
     }
@@ -217,7 +216,11 @@ public class GraphicUI extends JFrame implements ActionListener {
         // EFFECTS: Add multiple item when the "Add a single Item" botton is clicked
         @Override
         public void actionPerformed(ActionEvent evt) {
-
+            int reps = readReps();
+            AddSingleItemAction asi = new AddSingleItemAction();
+            for (int i = 0; i < reps; i++) {
+                asi.actionPerformed(evt);
+            }
         }
             
     }
