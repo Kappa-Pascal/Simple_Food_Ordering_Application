@@ -91,7 +91,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.setLayout(new GridLayout(3, 2));
         buttonPanel.add(new JButton(new AddSingleItemAction()));
         buttonPanel.add(new JButton(new AddMultipleItemsAction()));
-        buttonPanel.add(new JButton(mutateItemAction));
+        buttonPanel.add(new JButton(new ViewItemAction()));
         buttonPanel.add(new JButton(removeItemAction));
         buttonPanel.add(new JButton(saveItemAction));
         buttonPanel.add(new JButton(loadItemAction));
@@ -231,16 +231,14 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         ViewItemAction() {
-
+            super("View all added items");
         }
 
         // MODIFIES: this
-        // EFFECTS: Display items when the "View all added items" botton is clicked
+        // EFFECTS: Display the name and the price of items when the "View all added items" botton is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            JOptionPane.showMessageDialog(null, "All added items are:\n" + allItems.printItems());
         }
-        
-
     }
 }
