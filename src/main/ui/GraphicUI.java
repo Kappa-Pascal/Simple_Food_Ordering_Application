@@ -207,13 +207,14 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     // Represents the functionality of Add Multiple Items botton
     private class AddMultipleItemsAction extends AbstractAction {
+
         // EFFECTS: Display the name of a botton
         AddMultipleItemsAction() {
             super("Add multiple items");            
         }
 
         // MODIFIES: this, AllItems
-        // EFFECTS: Add multiple item when the "Add a single Item" botton is clicked
+        // EFFECTS: Add multiple items when the "Add a single Item" botton is clicked
         @Override
         public void actionPerformed(ActionEvent evt) {
             int reps = readReps();
@@ -223,5 +224,23 @@ public class GraphicUI extends JFrame implements ActionListener {
             }
         }
             
+    }
+
+    // Represents the functionality of View Items botton
+    private class ViewItemAction extends AbstractAction {
+
+        // EFFECTS: Display the name of a botton
+        ViewItemAction() {
+
+        }
+
+        // MODIFIES: this
+        // EFFECTS: Display items when the "View all added items" botton is clicked
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            
+        }
+        
+
     }
 }
