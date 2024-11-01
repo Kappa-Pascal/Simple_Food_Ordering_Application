@@ -149,9 +149,21 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     // REQUIRES: input >= 0
     // MODIFIES: this, Item, AllItems
-    // EFFECTS: read the stock of the item from user's input
+    // EFFECTS: read the number of the items the user want to add from user's input
     public static int readReps() throws NumberFormatException {
-        return 0;
+        int res = 0;
+        String reps = JOptionPane.showInputDialog(null,
+                "Number of Items?",
+                "Enter the Number of Items (non-negative integer):",
+                JOptionPane.QUESTION_MESSAGE);
+        try {
+            res = Integer.valueOf(reps);
+            return res;          
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage() + "\nInvalid Input", "Invalid Input",
+                    JOptionPane.ERROR_MESSAGE);
+            throw e;    
+        }
     }
 
     // Represents the functionality of Add Single Item botton
