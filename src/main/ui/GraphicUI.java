@@ -308,7 +308,7 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     }
 
-    // Represents the functionality of Remove item botton
+    // Represents the functionality of Remove An item botton
     private class RemoveItemAction extends AbstractAction {
 
         // EFFECTS: Display the name of a botton
@@ -332,7 +332,7 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     }
 
-    // Represents the functionality of Remove item botton
+    // Represents the functionality of Mutate An item botton
     private class MutateItemAction extends AbstractAction {
 
         // EFFECTS: Display the name of a botton
@@ -359,4 +359,21 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     }
 
+    // Represents the functionality of Add Stock botton
+    private class AddStockAction extends AbstractAction {
+
+        // EFFECTS: Display the name of a botton
+        AddStockAction() {
+
+        }
+
+        // MODIFIES: this, AllItems
+        // EFFECTS: Add the input amount of stock to items whose name is equal to the user's input
+        // if the name of the item does not exist, do nothing
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            
+        }
+
+    }
 }
