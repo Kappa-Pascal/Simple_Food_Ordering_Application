@@ -101,7 +101,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.add(new JButton(new SaveAction()));
         buttonPanel.add(new JButton(new LoadAction()));
         buttonPanel.add(new JButton(new MutateItemAction()));
-        buttonPanel.add(new JButton(removeItemAction));
+        buttonPanel.add(new JButton(new AddStockAction()));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
 
@@ -119,8 +119,8 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: read the name of the item from user's input
     public static String readItemName() {
         String name = JOptionPane.showInputDialog(null,
-                "Item Name?",
                 "Enter Item Name:",
+                "Item Name?",
                 JOptionPane.QUESTION_MESSAGE);
         return name;
     }
@@ -131,8 +131,8 @@ public class GraphicUI extends JFrame implements ActionListener {
     public static Double readItemPrice() throws NumberFormatException {
         double res = 0.0;
         String price = JOptionPane.showInputDialog(null,
-                "Item Price?",
                 "Enter Item Price: (non-negative number)",
+                "Item Price?",
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Double.valueOf(price);
@@ -151,8 +151,27 @@ public class GraphicUI extends JFrame implements ActionListener {
     public static int readItemStock() throws NumberFormatException {
         int res = 0;
         String stock = JOptionPane.showInputDialog(null,
-                "Item Stock?",
                 "Enter Item Stock (non-negative integer):",
+                "Item Stock?",
+                JOptionPane.QUESTION_MESSAGE);
+        try {
+            res = Integer.valueOf(stock);
+            return res;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage() + "\nInvalid Input", "Invalid Input",
+                    JOptionPane.ERROR_MESSAGE);
+            throw e;
+        }
+    }
+
+    // REQUIRES: input >= 0
+    // MODIFIES: this, Item, AllItems
+    // EFFECTS: read the stock of the item from user's input
+    public static int readItemAddedStock() throws NumberFormatException {
+        int res = 0;
+        String stock = JOptionPane.showInputDialog(null,
+                "Enter Added Item Stock (non-negative integer):",
+                "Added amount of Stock?",
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Integer.valueOf(stock);
@@ -170,8 +189,8 @@ public class GraphicUI extends JFrame implements ActionListener {
     public static int readReps() throws NumberFormatException {
         int res = 0;
         String reps = JOptionPane.showInputDialog(null,
-                "Number of Items?",
                 "Enter the Number of Items (non-negative integer):",
+                "Number of Items?",
                 JOptionPane.QUESTION_MESSAGE);
         try {
             res = Integer.valueOf(reps);
@@ -323,7 +342,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String name = JOptionPane.showInputDialog(null,
                     "Enter the name of the item\nyou want to remove",
-                    "Item Name",
+                    "Item Name?",
                     JOptionPane.QUESTION_MESSAGE);
             if (checkExistanceAllItems(name)) {
                 allItems.removeItem(allItems.findItem(name));
@@ -364,15 +383,29 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         AddStockAction() {
-
+            super("Add Stock");
         }
 
         // MODIFIES: this, AllItems
-        // EFFECTS: Add the input amount of stock to items whose name is equal to the user's input
+        // EFFECTS: Add the input amount of stock to items whose name is equal to the
+        // user's input and display the number of stock of item after the stock is
+        // added.
         // if the name of the item does not exist, do nothing
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            String name = JOptionPane.showInputDialog(null,
+                    "Enter the name of the item\nyou want to add stock to",
+                    "Item Name?",
+                    JOptionPane.QUESTION_MESSAGE);
+            if (checkExistanceAllItems(name)) {
+                Item itm = allItems.findItem(name);
+                int addedStock = readItemAddedStock();
+                itm.addstock(addedStock);
+                JOptionPane.showMessageDialog(null, "The stock of "
+                        + itm.getName() + " is "
+                        + Integer.toString(itm.getStockAmount()));
+
+            }
         }
 
     }
