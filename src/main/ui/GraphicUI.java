@@ -100,7 +100,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.add(new JButton(new RemoveItemAction()));
         buttonPanel.add(new JButton(new SaveAction()));
         buttonPanel.add(new JButton(new LoadAction()));
-        buttonPanel.add(new JButton(removeItemAction));
+        buttonPanel.add(new JButton(new MutateItemAction()));
         buttonPanel.add(new JButton(removeItemAction));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
@@ -322,8 +322,8 @@ public class GraphicUI extends JFrame implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String name = JOptionPane.showInputDialog(null,
-                    "Item name:",
-                    "Enter the Name of the item you want ro remove",
+                    "Enter the name of the item\nyou want to remove",
+                    "Item Name",
                     JOptionPane.QUESTION_MESSAGE);
             if (checkExistanceAllItems(name)) {
                 allItems.removeItem(allItems.findItem(name));
@@ -337,15 +337,24 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         MutateItemAction() {
-            super("Remove An Item");
+            super("Mutate An Item");
         }
 
         // MODIFIES: this, AllItems
-        // EFFECTS: Mutate items whose name is equal to the user's input to the new name, price and stock
+        // EFFECTS: Mutate items whose name is equal to the user's input to the new
+        // name, price
         // if the name of the item does not exist, do nothing
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            String name = JOptionPane.showInputDialog(null,
+                    "Enter the name of the item\nyou want to mutate",
+                    "Item name",
+                    JOptionPane.QUESTION_MESSAGE);
+            if (checkExistanceAllItems(name)) {
+                String newName = readItemName();
+                double price = readItemPrice();
+                allItems.mutateItem(allItems.findItem(name), newName, price);
+            }
         }
 
     }
