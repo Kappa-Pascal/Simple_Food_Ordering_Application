@@ -84,7 +84,7 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: Detect a MouseEvent
-    @Override
+    //@Override
     public void actionPerformed(ActionEvent e) {
         GraphicUI.this.requestFocusInWindow();
     }
@@ -97,12 +97,22 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.add(new JButton(new AddSingleItemAction()));
         buttonPanel.add(new JButton(new AddMultipleItemsAction()));
         buttonPanel.add(new JButton(new ViewItemAction()));
-        buttonPanel.add(new JButton(removeItemAction));
+        buttonPanel.add(new JButton(new RemoveItemAction()));
         buttonPanel.add(new JButton(new SaveAction()));
         buttonPanel.add(new JButton(new LoadAction()));
         buttonPanel.add(new JButton(removeItemAction));
         buttonPanel.add(new JButton(removeItemAction));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
+    }
+
+    // EFFECTS: produce true if the item with the given name exists in AllItems,
+    // otherwise produce false
+    public boolean checkExistanceAllItems(String name) {
+        if (allItems.findItem(name) == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     // MODIFIES: this, Item, AllItems
@@ -290,7 +300,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             JsonReaderAllItems reader = new JsonReaderAllItems(PATH);
             try {
                 allItems = reader.read();
-                JOptionPane.showMessageDialog(null, "All Saved items are loaded");                
+                JOptionPane.showMessageDialog(null, "All Saved items are loaded");
             } catch (IOException ec) {
                 return;
             }
@@ -303,15 +313,21 @@ public class GraphicUI extends JFrame implements ActionListener {
 
         // EFFECTS: Display the name of a botton
         RemoveItemAction() {
-            
+            super("Remove An Item");
         }
 
         // MODIFIES: this, AllItems
         // EFFECTS: Remove items whose name is equal to the user's input
-        // if the name of the item does not exist, do nothing 
+        // if the name of the item does not exist, do nothing
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            String name = JOptionPane.showInputDialog(null,
+                    "Item name:",
+                    "Enter the Name of the item you want ro remove",
+                    JOptionPane.QUESTION_MESSAGE);
+            if (checkExistanceAllItems(name)) {
+                allItems.removeItem(allItems.findItem(name));
+            }
         }
 
     }
