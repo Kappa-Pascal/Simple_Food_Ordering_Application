@@ -84,7 +84,7 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: Detect a MouseEvent
-    //@Override
+    // @Override
     public void actionPerformed(ActionEvent e) {
         GraphicUI.this.requestFocusInWindow();
     }
@@ -331,4 +331,23 @@ public class GraphicUI extends JFrame implements ActionListener {
         }
 
     }
+
+    // Represents the functionality of Remove item botton
+    private class MutateItemAction extends AbstractAction {
+
+        // EFFECTS: Display the name of a botton
+        MutateItemAction() {
+            super("Remove An Item");
+        }
+
+        // MODIFIES: this, AllItems
+        // EFFECTS: Mutate items whose name is equal to the user's input to the new name, price and stock
+        // if the name of the item does not exist, do nothing
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+
+    }
+
 }
