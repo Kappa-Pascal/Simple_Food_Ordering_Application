@@ -37,8 +37,8 @@ public class GraphicUI extends JFrame implements ActionListener {
     private Action mutateItemAction;
     private Action saveItemAction;
     private Action loadItemAction;
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 800;
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 400;
     private static final String PATH = "./data/savedData.json";
 
     // EFFECTS: Display the graphic UI of the project
@@ -294,6 +294,24 @@ public class GraphicUI extends JFrame implements ActionListener {
             } catch (IOException ec) {
                 return;
             }
+        }
+
+    }
+
+    // Represents the functionality of Remove item botton
+    private class RemoveItemAction extends AbstractAction {
+
+        // EFFECTS: Display the name of a botton
+        RemoveItemAction() {
+            
+        }
+
+        // MODIFIES: this, AllItems
+        // EFFECTS: Remove items whose name is equal to the user's input
+        // if the name of the item does not exist, do nothing 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
         }
 
     }
