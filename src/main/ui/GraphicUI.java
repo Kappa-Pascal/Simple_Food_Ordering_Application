@@ -10,6 +10,7 @@ import persistence.JsonReaderAllItems;
 import persistence.JsonWriterAllItems;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -29,6 +30,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     private Order order;
     private JDesktopPane desktop;
     private JInternalFrame controlPanel;
+    private JInternalFrame textPanel;
     private JButton addSingleItem;
     private ActionListener actionListener;
     private Action addSingleItemAction;
@@ -37,6 +39,10 @@ public class GraphicUI extends JFrame implements ActionListener {
     private Action mutateItemAction;
     private Action saveItemAction;
     private Action loadItemAction;
+    private JTextArea text;
+    private JFrame frame;
+    private JPanel panel;
+    private JLabel label;
     private static final int WIDTH = 500;
     private static final int HEIGHT = 400;
     private static final String PATH = "./data/savedData.json";
@@ -49,9 +55,13 @@ public class GraphicUI extends JFrame implements ActionListener {
         setBlankFrame();
         // addSingleItem.addActionListener(actionListener);
         addButtonPanel();
+        frame = new JFrame("Items Panel");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 250);
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
         controlPanel.pack();
+        initializeText();
         // JList<Item> displayList = new JList<>();
         // JScrollPane scrollPane = new JScrollPane(displayList);
         // getContentPane().add(scrollPane);
@@ -67,6 +77,8 @@ public class GraphicUI extends JFrame implements ActionListener {
         desktop.addMouseListener(new DesktopFocusAction());
         controlPanel = new JInternalFrame("Graphic UI", false, false, false, false);
         controlPanel.setLayout(new BorderLayout());
+        // textPanel = new JInternalFrame("Graphic UI", false, false, false, false);
+        // textPanel.setLayout(new BorderLayout());
         setContentPane(desktop);
         setTitle("Food Ordering Application");
         setSize(WIDTH, HEIGHT);
@@ -93,7 +105,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Add buttons in the graphic UI
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(4, 2));
+        buttonPanel.setLayout(new GridLayout(5, 2));
         buttonPanel.add(new JButton(new AddSingleItemAction()));
         buttonPanel.add(new JButton(new AddMultipleItemsAction()));
         buttonPanel.add(new JButton(new ViewItemAction()));
@@ -103,6 +115,11 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.add(new JButton(new MutateItemAction()));
         buttonPanel.add(new JButton(new AddStockAction()));
         controlPanel.add(buttonPanel, BorderLayout.WEST);
+        // JPanel itemPanel = new JPanel();
+        // itemPanel.setLayout(new GridLayout(1,1));
+        // text = new JTextArea("All items are: \n");
+        // textPanel.add(itemPanel, BorderLayout.WEST);
+        // buttonPanel.add(text);
     }
 
     // EFFECTS: produce true if the item with the given name exists in AllItems,
@@ -275,8 +292,32 @@ public class GraphicUI extends JFrame implements ActionListener {
         // items" botton is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(null, "All added items are:\n" + allItems.printItems());
+            JOptionPane.showMessageDialog(null, "All added items are:\n"
+                    + allItems.printItems());
         }
+
+    }
+
+    // MODIFIES: this
+    // EFFECT: initialize the panel that displays all added items
+    public void initializeText() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+        // Create a text area for displaying items
+        JTextArea textArea = new JTextArea(10, 20);
+        textArea.setText("All added items:\n");
+        textArea.setEditable(false); // Make it read-only
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+
+        // Add the text area to a scroll pane in case of long content
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        // Add the scroll pane to the panel
+        panel.add(scrollPane, BorderLayout.CENTER);
+        frame.add(textArea);
+        frame.setVisible(true);
     }
 
     // Represents the functionality of Save botton
