@@ -304,20 +304,23 @@ public class GraphicUI extends JFrame implements ActionListener {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        // Create a text area for displaying items
         JTextArea textArea = new JTextArea(10, 20);
         textArea.setText("All added items:\n");
         textArea.setEditable(false); // Make it read-only
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
 
-        // Add the text area to a scroll pane in case of long content
         JScrollPane scrollPane = new JScrollPane(textArea);
 
-        // Add the scroll pane to the panel
         panel.add(scrollPane, BorderLayout.CENTER);
         frame.add(textArea);
         frame.setVisible(true);
+    }
+
+    // MODIFIES: this
+    // EFFECT: Update text in the panel that displays all added items
+    public void updateText(String text) {
+
     }
 
     // Represents the functionality of Save botton
