@@ -20,6 +20,8 @@ import java.io.IOException;
 // Represent the graphic UI of the project
 // Part of the code is modelled from AlarmSystem
 // Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/AlarmSystem 
+// The loadImage method is modelled from TrafficLight, the lecture lab of C3
+// Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabSolution
 public class GraphicUI extends JFrame implements ActionListener {
     private AllItems allItems;
     private JDesktopPane desktop;
