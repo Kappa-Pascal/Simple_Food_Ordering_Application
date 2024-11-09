@@ -41,10 +41,11 @@ public class GraphicUI extends JFrame implements ActionListener {
     private Action loadItemAction;
     private JTextArea text;
     private JFrame frame;
+    private JTextArea textArea;
     private JPanel panel;
     private JLabel label;
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 400;
+    private static final int WIDTH = 700;
+    private static final int HEIGHT = 500;
     private static final String PATH = "./data/savedData.json";
 
     // EFFECTS: Display the graphic UI of the project
@@ -55,9 +56,9 @@ public class GraphicUI extends JFrame implements ActionListener {
         setBlankFrame();
         // addSingleItem.addActionListener(actionListener);
         addButtonPanel();
-        frame = new JFrame("Items Panel");
+        frame = new JFrame("Added Item List");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 250);
+        frame.setSize(500, 400);
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
         controlPanel.pack();
@@ -82,6 +83,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         setContentPane(desktop);
         setTitle("Food Ordering Application");
         setSize(WIDTH, HEIGHT);
+        setLocation(500,0);
     }
 
     // Represent a inner class that is used for key handling
@@ -105,7 +107,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Add buttons in the graphic UI
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(5, 2));
+        buttonPanel.setLayout(new GridLayout(4, 2));
         buttonPanel.add(new JButton(new AddSingleItemAction()));
         buttonPanel.add(new JButton(new AddMultipleItemsAction()));
         buttonPanel.add(new JButton(new ViewItemAction()));
@@ -255,6 +257,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             double price = readItemPrice();
             int stock = readItemStock();
             allItems.addItem(new Item(name, price, stock));
+            updateText(allItems.printItems());
         }
     }
 
@@ -275,6 +278,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             for (int i = 0; i < reps; i++) {
                 asi.actionPerformed(evt);
             }
+            updateText(allItems.printItems());
         }
 
     }
@@ -304,8 +308,8 @@ public class GraphicUI extends JFrame implements ActionListener {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        JTextArea textArea = new JTextArea(10, 20);
-        textArea.setText("All added items:\n");
+        textArea = new JTextArea(10, 20);
+        textArea.setText("");
         textArea.setEditable(false); // Make it read-only
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -320,7 +324,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     // MODIFIES: this
     // EFFECT: Update text in the panel that displays all added items
     public void updateText(String text) {
-
+        textArea.setText(text);
     }
 
     // Represents the functionality of Save botton
@@ -367,6 +371,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             } catch (IOException ec) {
                 return;
             }
+            updateText(allItems.printItems());
         }
 
     }
@@ -391,6 +396,7 @@ public class GraphicUI extends JFrame implements ActionListener {
             if (checkExistanceAllItems(name)) {
                 allItems.removeItem(allItems.findItem(name));
             }
+            updateText(allItems.printItems());
         }
 
     }
@@ -418,6 +424,7 @@ public class GraphicUI extends JFrame implements ActionListener {
                 double price = readItemPrice();
                 allItems.mutateItem(allItems.findItem(name), newName, price);
             }
+            updateText(allItems.printItems());
         }
 
     }
@@ -450,6 +457,7 @@ public class GraphicUI extends JFrame implements ActionListener {
                         + Integer.toString(itm.getStockAmount()));
 
             }
+            updateText(allItems.printItems());
         }
 
     }
