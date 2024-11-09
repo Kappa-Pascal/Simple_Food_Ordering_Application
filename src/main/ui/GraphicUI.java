@@ -4,20 +4,16 @@ import javax.swing.*;
 
 import model.AllItems;
 import model.Item;
-import model.Order;
-import model.OrderList;
+
 import persistence.JsonReaderAllItems;
 import persistence.JsonWriterAllItems;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -26,24 +22,11 @@ import java.io.IOException;
 // Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/AlarmSystem 
 public class GraphicUI extends JFrame implements ActionListener {
     private AllItems allItems;
-    private OrderList orderList;
-    private Order order;
     private JDesktopPane desktop;
     private JInternalFrame controlPanel;
-    private JInternalFrame textPanel;
-    private JButton addSingleItem;
-    private ActionListener actionListener;
-    private Action addSingleItemAction;
-    private Action addMultipleItemAction;
-    private Action removeItemAction;
-    private Action mutateItemAction;
-    private Action saveItemAction;
-    private Action loadItemAction;
-    private JTextArea text;
     private JFrame frame;
     private JTextArea textArea;
-    private JPanel panel;
-    private JLabel label;
+    private ImageIcon backgroundImage;
     private static final int WIDTH = 700;
     private static final int HEIGHT = 500;
     private static final String PATH = "./data/savedData.json";
@@ -51,7 +34,6 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Display the graphic UI of the project
     public GraphicUI() {
         this.allItems = new AllItems();
-        this.orderList = new OrderList();
         // this.addSingleItem = new JButton("Add single item");
         setBlankFrame();
         // addSingleItem.addActionListener(actionListener);
@@ -59,6 +41,8 @@ public class GraphicUI extends JFrame implements ActionListener {
         frame = new JFrame("Added Item List");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
+        frame.add(loadImage());
+        frame.pack();
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
         controlPanel.pack();
@@ -75,6 +59,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Display a blank frame
     public void setBlankFrame() {
         desktop = new JDesktopPane();
+        desktop.setLayout(null);
         desktop.addMouseListener(new DesktopFocusAction());
         controlPanel = new JInternalFrame("Graphic UI", false, false, false, false);
         controlPanel.setLayout(new BorderLayout());
@@ -83,7 +68,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         setContentPane(desktop);
         setTitle("Food Ordering Application");
         setSize(WIDTH, HEIGHT);
-        setLocation(500,0);
+        setLocation(700, 0);
     }
 
     // Represent a inner class that is used for key handling
@@ -327,8 +312,15 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: Load the background image
-    public void loadImage() {
-
+    public JLabel loadImage() {
+        String sep = System.getProperty("file.separator");
+        backgroundImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "image" + sep + "Background.jpg");
+        // System.out.println(backgroundImage.getIconHeight());
+        JLabel imageAsLabel = new JLabel(backgroundImage);
+        // imageAsLabel.setSize(desktop.getSize());
+        return imageAsLabel;
+        // desktop.add(imageAsLabel);
     }
 
     // Represents the functionality of Save botton
