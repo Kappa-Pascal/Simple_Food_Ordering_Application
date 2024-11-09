@@ -303,7 +303,7 @@ public class GraphicUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECT: initialize the panel that displays all added items
+    // EFFECTS: initialize the panel that displays all added items
     public void initializeText() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -311,8 +311,6 @@ public class GraphicUI extends JFrame implements ActionListener {
         textArea = new JTextArea(10, 20);
         textArea.setText("");
         textArea.setEditable(false); // Make it read-only
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
 
@@ -322,9 +320,15 @@ public class GraphicUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECT: Update text in the panel that displays all added items
+    // EFFECTS: Update text in the panel that displays all added items
     public void updateText(String text) {
         textArea.setText(text);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Load the background image
+    public void loadImage() {
+
     }
 
     // Represents the functionality of Save botton
