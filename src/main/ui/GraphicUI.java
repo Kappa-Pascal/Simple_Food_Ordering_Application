@@ -40,7 +40,7 @@ public class GraphicUI extends JPanel implements ActionListener {
         this.allItems = new AllItems();
         textPanel = new JPanel();
         imagePanel = new JPanel();
-        frame = new JFrame("Added Item List");
+        frame = new JFrame("Food Ordering Application");
         // this.addSingleItem = new JButton("Add single item");
         setBlankFrame();
         // addSingleItem.addActionListener(actionListener);
