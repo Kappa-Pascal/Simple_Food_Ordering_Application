@@ -17,16 +17,19 @@ import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// TODO: edited README.md file to meet documentation requirement.
 // Represent the graphic UI of the project
 // Part of the code is modelled from AlarmSystem
 // Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/AlarmSystem 
 // The loadImage method is modelled from TrafficLight, the lecture lab of C3
 // Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabSolution
-public class GraphicUI extends JFrame implements ActionListener {
+public class GraphicUI extends JPanel implements ActionListener {
     private AllItems allItems;
     private JDesktopPane desktop;
     private JInternalFrame controlPanel;
     private JFrame frame;
+    private JPanel textPanel;
+    private JPanel imagePanel;
     private JTextArea textArea;
     private ImageIcon backgroundImage;
     private static final int WIDTH = 700;
@@ -36,15 +39,15 @@ public class GraphicUI extends JFrame implements ActionListener {
     // EFFECTS: Display the graphic UI of the project
     public GraphicUI() {
         this.allItems = new AllItems();
+        textPanel = new JPanel();
+        imagePanel = new JPanel();
+        frame = new JFrame("Added Item List");
         // this.addSingleItem = new JButton("Add single item");
         setBlankFrame();
         // addSingleItem.addActionListener(actionListener);
-        addButtonPanel();
-        frame = new JFrame("Added Item List");
+        addButtonPanel();        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
-        frame.add(loadImage());
-        frame.pack();
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
         controlPanel.pack();
@@ -54,7 +57,10 @@ public class GraphicUI extends JFrame implements ActionListener {
         // getContentPane().add(scrollPane);
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        imagePanel.add(loadImage());
+        frame.add(imagePanel);
+        frame.pack();
     }
 
     // MODIFIES: this
@@ -67,10 +73,30 @@ public class GraphicUI extends JFrame implements ActionListener {
         controlPanel.setLayout(new BorderLayout());
         // textPanel = new JInternalFrame("Graphic UI", false, false, false, false);
         // textPanel.setLayout(new BorderLayout());
-        setContentPane(desktop);
-        setTitle("Food Ordering Application");
+        frame.add(desktop);
+        frame.add(controlPanel);
+        //setContentPane(desktop);
+        //setTitle("Food Ordering Application");
         setSize(WIDTH, HEIGHT);
         setLocation(700, 0);
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initialize the panel that displays all added items
+    public void initializeText() {
+        textPanel.setLayout(new BorderLayout());
+
+        textArea = new JTextArea(10, 20);
+        textArea.setText("");
+        textArea.setEditable(false); // Make it read-only
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        textPanel.add(scrollPane, BorderLayout.CENTER);
+        textPanel.add(textArea);
+        frame.add(textPanel);
+        frame.setVisible(true);
     }
 
     // Represent a inner class that is used for key handling
@@ -103,7 +129,7 @@ public class GraphicUI extends JFrame implements ActionListener {
         buttonPanel.add(new JButton(new LoadAction()));
         buttonPanel.add(new JButton(new MutateItemAction()));
         buttonPanel.add(new JButton(new AddStockAction()));
-        controlPanel.add(buttonPanel, BorderLayout.WEST);
+        frame.add(buttonPanel, BorderLayout.WEST);
         // JPanel itemPanel = new JPanel();
         // itemPanel.setLayout(new GridLayout(1,1));
         // text = new JTextArea("All items are: \n");
@@ -289,22 +315,7 @@ public class GraphicUI extends JFrame implements ActionListener {
 
     }
 
-    // MODIFIES: this
-    // EFFECTS: initialize the panel that displays all added items
-    public void initializeText() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
 
-        textArea = new JTextArea(10, 20);
-        textArea.setText("");
-        textArea.setEditable(false); // Make it read-only
-
-        JScrollPane scrollPane = new JScrollPane(textArea);
-
-        panel.add(scrollPane, BorderLayout.CENTER);
-        frame.add(textArea);
-        frame.setVisible(true);
-    }
 
     // MODIFIES: this
     // EFFECTS: Update text in the panel that displays all added items
