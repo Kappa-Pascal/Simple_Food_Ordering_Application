@@ -17,7 +17,6 @@ import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-// TODO: edited README.md file to meet documentation requirement.
 // Represent the graphic UI of the project
 // Part of the code is modelled from AlarmSystem
 // Citation: “Build software better, together,” GitHub. https://github.students.cs.ubc.ca/CPSC210/AlarmSystem 
