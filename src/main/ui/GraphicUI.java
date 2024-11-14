@@ -41,22 +41,19 @@ public class GraphicUI extends JPanel implements ActionListener {
         textPanel = new JPanel();
         imagePanel = new JPanel();
         frame = new JFrame("Food Ordering Application");
-        // this.addSingleItem = new JButton("Add single item");
+
         setBlankFrame();
-        // addSingleItem.addActionListener(actionListener);
-        addButtonPanel();        
+        addButtonPanel(); 
+              
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
         controlPanel.pack();
+
         initializeText();
-        // JList<Item> displayList = new JList<>();
-        // JScrollPane scrollPane = new JScrollPane(displayList);
-        // getContentPane().add(scrollPane);
-        // setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
         imagePanel.add(loadImage());
         frame.add(imagePanel);
         frame.pack();
@@ -70,12 +67,8 @@ public class GraphicUI extends JPanel implements ActionListener {
         desktop.addMouseListener(new DesktopFocusAction());
         controlPanel = new JInternalFrame("Graphic UI", false, false, false, false);
         controlPanel.setLayout(new BorderLayout());
-        // textPanel = new JInternalFrame("Graphic UI", false, false, false, false);
-        // textPanel.setLayout(new BorderLayout());
         frame.add(desktop);
         frame.add(controlPanel);
-        //setContentPane(desktop);
-        //setTitle("Food Ordering Application");
         setSize(WIDTH, HEIGHT);
         setLocation(700, 0);
 
@@ -90,9 +83,6 @@ public class GraphicUI extends JPanel implements ActionListener {
         textArea.setText("");
         textArea.setEditable(false); // Make it read-only
 
-        JScrollPane scrollPane = new JScrollPane(textArea);
-
-        textPanel.add(scrollPane, BorderLayout.CENTER);
         textPanel.add(textArea);
         frame.add(textPanel);
         frame.setVisible(true);
@@ -129,11 +119,6 @@ public class GraphicUI extends JPanel implements ActionListener {
         buttonPanel.add(new JButton(new MutateItemAction()));
         buttonPanel.add(new JButton(new AddStockAction()));
         frame.add(buttonPanel, BorderLayout.WEST);
-        // JPanel itemPanel = new JPanel();
-        // itemPanel.setLayout(new GridLayout(1,1));
-        // text = new JTextArea("All items are: \n");
-        // textPanel.add(itemPanel, BorderLayout.WEST);
-        // buttonPanel.add(text);
     }
 
     // EFFECTS: produce true if the item with the given name exists in AllItems,
@@ -245,26 +230,6 @@ public class GraphicUI extends JPanel implements ActionListener {
         // EFFECTS: Add a single item when the "Add a single Item" botton is clicked
         @Override
         public void actionPerformed(ActionEvent evt) {
-            // The following code allows users to input a String.
-            /*
-             * String sensorLoc = JOptionPane.showInputDialog(null,
-             * "Sensor location?",
-             * "Enter sensor location",
-             * JOptionPane.QUESTION_MESSAGE);
-             */
-
-            // The following code displays a String in a new window
-            // JOptionPane.showMessageDialog(null, String);
-
-            // AlarmCode alarmCode = new AlarmCode(kp.getCode());
-            // kp.clearCode();
-            // try {
-            // ac.addCode(alarmCode);
-            // } catch (NotValidCodeException e) {
-            // JOptionPane.showMessageDialog(null, e.getMessage(), "System Error",
-            // JOptionPane.ERROR_MESSAGE);
-            // }
-            // System.out.println("success");
             String name = readItemName();
             double price = readItemPrice();
             int stock = readItemStock();
@@ -328,11 +293,8 @@ public class GraphicUI extends JPanel implements ActionListener {
         String sep = System.getProperty("file.separator");
         backgroundImage = new ImageIcon(System.getProperty("user.dir") + sep
                 + "image" + sep + "Background.jpg");
-        // System.out.println(backgroundImage.getIconHeight());
         JLabel imageAsLabel = new JLabel(backgroundImage);
-        // imageAsLabel.setSize(desktop.getSize());
         return imageAsLabel;
-        // desktop.add(imageAsLabel);
     }
 
     // Represents the functionality of Save botton
