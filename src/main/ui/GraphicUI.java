@@ -31,8 +31,8 @@ public class GraphicUI extends JPanel implements ActionListener {
     private JPanel imagePanel;
     private JTextArea textArea;
     private ImageIcon backgroundImage;
-    private static final int WIDTH = 700;
-    private static final int HEIGHT = 500;
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 700;
     private static final String PATH = "./data/savedData.json";
 
     // EFFECTS: Display the graphic UI of the project
@@ -46,7 +46,7 @@ public class GraphicUI extends JPanel implements ActionListener {
         addButtonPanel(); 
               
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 400);
+        frame.setSize(WIDTH, HEIGHT);
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
         controlPanel.pack();
@@ -70,7 +70,7 @@ public class GraphicUI extends JPanel implements ActionListener {
         frame.add(desktop);
         frame.add(controlPanel);
         setSize(WIDTH, HEIGHT);
-        setLocation(700, 0);
+        setLocation(WIDTH, 0);
 
     }
 
