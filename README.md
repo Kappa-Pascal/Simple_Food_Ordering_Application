@@ -34,7 +34,7 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - You can add an item to the item collection (AllItems) by clicking button labelled "Add a single Items"
 - You can add multiple items to the item collection (AllItems) by clicking button labelled "Add multiple items" and then entering the number of items you want to add.
 - You can generate the first required action related to the user story "adding multiple Xs to a Y" (remove an item) by clicking button labelled "Remove An Item" and then entering the name of item you want to remove.
-- You can generate the second required action related to the user story "adding multiple Xs to a Y" (mutate an item's name and price) by clicking button labelled "Mutate An Item" and then entering the name of item you want to mutate.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" (mutate an item's name and price) by clicking button labelled "Mutate An Item", entering the name of item you want to mutate, and then entering the new name and the new price of the item you want to mutate.
 - You can locate my visual component by looking at the background image at the right half of the window.
 - You can save the state of my application by clicking button labelled "Save".
 - You can reload the state of my application by clicking button labelled "Load".
