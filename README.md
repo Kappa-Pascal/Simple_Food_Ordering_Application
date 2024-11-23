@@ -40,13 +40,25 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - You can reload the state of my application by clicking button labelled "Load".
 
 ## Phase 4, Task 2
-Fri Nov 22 21:10:37 PST 2024
+Fri Nov 22 22:04:07 PST 2024
 An Item named SampleItem1 is added
-Fri Nov 22 21:10:48 PST 2024
+Fri Nov 22 22:04:07 PST 2024
+All added items are displayed
+Fri Nov 22 22:04:23 PST 2024
 An Item named SampleItem2 is added
-Fri Nov 22 21:11:04 PST 2024
+Fri Nov 22 22:04:23 PST 2024
+All added items are displayed
+Fri Nov 22 22:04:35 PST 2024
 An Item named SampleItem3 is added
-Fri Nov 22 21:11:19 PST 2024
+Fri Nov 22 22:04:35 PST 2024
+All added items are displayed
+Fri Nov 22 22:04:35 PST 2024
+All added items are displayed
+Fri Nov 22 22:04:44 PST 2024
 An Item named SampleItem3 is removed
-Fri Nov 22 21:11:45 PST 2024
+Fri Nov 22 22:04:44 PST 2024
+All added items are displayed
+Fri Nov 22 22:05:06 PST 2024
 An Item originally named SampleItem1 is changed to the new name, RenamedSampleItem1, and its price is changed to $98.76
+Fri Nov 22 22:05:06 PST 2024
+All added items are displayed
