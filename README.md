@@ -38,3 +38,15 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - You can locate my visual component by looking at the background image at the right half of the window.
 - You can save the state of my application by clicking button labelled "Save".
 - You can reload the state of my application by clicking button labelled "Load".
+
+## Phase 4, Task 2
+Fri Nov 22 21:10:37 PST 2024
+An Item named SampleItem1 is added
+Fri Nov 22 21:10:48 PST 2024
+An Item named SampleItem2 is added
+Fri Nov 22 21:11:04 PST 2024
+An Item named SampleItem3 is added
+Fri Nov 22 21:11:19 PST 2024
+An Item named SampleItem3 is removed
+Fri Nov 22 21:11:45 PST 2024
+An Item originally named SampleItem1 is changed to the new name, RenamedSampleItem1, and its price is changed to $98.76

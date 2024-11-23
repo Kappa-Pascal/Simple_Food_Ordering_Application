@@ -25,7 +25,7 @@ public class AllItems {
     // EFFECTS: remove an item in AllItems
     public void removeItem(Item item) {
         allItems.remove(item);
-        EventLog.getInstance().logEvent(new Event("An Item named"
+        EventLog.getInstance().logEvent(new Event("An Item named "
                 + item.getName() + " is removed"));
     }
 
@@ -36,7 +36,7 @@ public class AllItems {
         String originalName = item.getName();
         item.setName(newName);
         item.setPrice(newPrice);
-        EventLog.getInstance().logEvent(new Event("An Item originally named"
+        EventLog.getInstance().logEvent(new Event("An Item originally named "
                 + originalName + " is changed to the new name, " + newName
                 + ", and its price is changed to $" + newPrice));
     }
