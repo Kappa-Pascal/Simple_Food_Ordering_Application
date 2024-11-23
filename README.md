@@ -62,3 +62,13 @@ Fri Nov 22 22:05:06 PST 2024
 An Item originally named SampleItem1 is changed to the new name, RenamedSampleItem1, and its price is changed to $98.76
 Fri Nov 22 22:05:06 PST 2024
 All added items are displayed
+## Phase 4: Task 3
+
+- I would like to refactor the GraphicUI class if I have more time. I will move all of the inner classes that extends AbstractAction and the
+helper methods of reading users input to a new class called Actions in the UI package. Then, I will change the visibility of inner classes to
+public and instantiate the Actions class in GraphicUI so I can instantiate these inner classes when adding buttons in GraphicUI class.
+
+- The reason of this refactoring is that GraphicUI class does not follow the single responsibility principle and that the cohesion of the 
+GraphicUI class is low, since the inner classes that extends AbstractAction and the helper methods of reading users input do not modify the 
+fields other than allItems. While other methods set up the graphic UI and modify the fields other than allItems, these inner classes and helpers 
+only handle user's input and only modify allItems.
