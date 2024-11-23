@@ -3,6 +3,8 @@ package ui;
 import javax.swing.*;
 
 import model.AllItems;
+import model.Event;
+import model.EventLog;
 import model.Item;
 
 import persistence.JsonReaderAllItems;
@@ -14,8 +16,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Iterator;
 
 // Represent the graphic UI of the project
 // Part of the code is modelled from AlarmSystem
@@ -43,8 +48,8 @@ public class GraphicUI extends JPanel implements ActionListener {
         frame = new JFrame("Food Ordering Application");
 
         setBlankFrame();
-        addButtonPanel(); 
-              
+        addButtonPanel();
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         controlPanel.setVisible(true);
@@ -53,10 +58,30 @@ public class GraphicUI extends JPanel implements ActionListener {
 
         initializeText();
         setVisible(true);
-        
+
         imagePanel.add(loadImage());
         frame.add(imagePanel);
         frame.pack();
+        frame.addWindowListener(new WindowsAction());
+    }
+
+    // Represent a inner class that is used for windows event handling
+    private class WindowsAction extends WindowAdapter {
+
+        // EFFECT: Print the log when the user closes the window
+        @Override
+        public void windowClosing(WindowEvent e) {
+            printLog();
+        }
+    }
+
+    // MODIFIES: EventLog, Event
+    // EFFECTS: Print the log in the console
+    public void printLog() {
+        Iterator<Event> itb = EventLog.getInstance().iterator();
+        while (itb.hasNext()) {
+            System.out.println(itb.next().toString());
+        }
     }
 
     // MODIFIES: this
@@ -278,8 +303,6 @@ public class GraphicUI extends JPanel implements ActionListener {
         }
 
     }
-
-
 
     // MODIFIES: this
     // EFFECTS: Update text in the panel that displays all added items

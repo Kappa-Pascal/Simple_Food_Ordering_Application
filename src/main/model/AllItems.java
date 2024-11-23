@@ -16,6 +16,8 @@ public class AllItems {
     // EFFECTS: add an item to AllItems
     public void addItem(Item item) {
         allItems.add(item);
+        EventLog.getInstance().logEvent(new Event("An Item named "
+                + item.getName() + " is added"));
     }
 
     // REQUIRES: the given item exists
@@ -23,14 +25,20 @@ public class AllItems {
     // EFFECTS: remove an item in AllItems
     public void removeItem(Item item) {
         allItems.remove(item);
+        EventLog.getInstance().logEvent(new Event("An Item named"
+                + item.getName() + " is removed"));
     }
 
     // REQUIRES: the given item exists
     // MODIFIES: this, Item
     // EFFECTS: mutate the name and price of an item
     public void mutateItem(Item item, String newName, double newPrice) {
+        String originalName = item.getName();
         item.setName(newName);
         item.setPrice(newPrice);
+        EventLog.getInstance().logEvent(new Event("An Item originally named"
+                + originalName + " is changed to the new name, " + newName
+                + ", and its price is changed to $" + newPrice));
     }
 
     // EFFECTS: produce the item corresponding to the itemName, return
