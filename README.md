@@ -39,7 +39,7 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - You can save the state of my application by clicking button labelled "Save".
 - You can reload the state of my application by clicking button labelled "Load".
 
-## Phase 4, Task 2
+## Phase 4: Task 2
 Tue Nov 26 14:32:57 PST 2024
 An Item named SampleItem1 is added
 Tue Nov 26 14:33:11 PST 2024
