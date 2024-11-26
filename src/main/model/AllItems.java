@@ -58,7 +58,6 @@ public class AllItems {
         for (Item itm : allItems) {
             res += (itm.getName() + " $" + Double.toString(itm.getPrice()) + "\n");
         }
-        EventLog.getInstance().logEvent(new Event("All added items are displayed"));
         return res;
     }
 
