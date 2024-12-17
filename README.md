@@ -1,14 +1,9 @@
 # Food Ordering Application
 
 ## Proposal
- 
 The application is used for food ordering in restaurants. It can hold and manage all items the restaurants provide, and it allows **customers** to
 order items on this application. **Stuffs** can add and remove items to this application, thay can also manage the list of orders from customers.
 Customers can order these provided items on this application. 
-
-Having effective and efficient communication to stuffs in restaurants is almost impossible for me, espacially in the noisy environment or under
-the circumstance that I do not know how to pronounce the food name correctly. I have to repeat myself multiple times to have effective
-communication with stuffs. Therefore, I choose this project to improve the efficiency of communication of food ordering in restaurants.
 
 ## User Stories
 - As a stuff, I want to create a new item with specified name, price, and stock.
@@ -29,8 +24,7 @@ communication with stuffs. Therefore, I choose this project to improve the effic
 - As a stuff, I want to delete order based on the given order ID when an order is complete.
 - As a stuff, I want to ensure that the OrderList is empty when quitting the application.
 
-# Instructions for End User
-
+## Instructions for End User
 - You can add an item to the item collection (AllItems) by clicking button labelled "Add a single Items"
 - You can add multiple items to the item collection (AllItems) by clicking button labelled "Add multiple items" and then entering the number of items you want to add.
 - You can generate the first required action related to the user story "adding multiple Xs to a Y" (remove an item) by clicking button labelled "Remove An Item" and then entering the name of item you want to remove.
@@ -50,8 +44,8 @@ Tue Nov 26 14:33:48 PST 2024
 An Item named SampleItem3 is removed
 Tue Nov 26 14:34:20 PST 2024
 An Item originally named SampleItem1 is changed to the new name, RenamedSampleItem1, and its price is changed to $1.99
-## Phase 4: Task 3
 
+## Phase 4: Task 3
 - I would like to refactor the GraphicUI class if I have more time. I will move all of the inner classes that extends AbstractAction and the
 helper methods of reading users input to a new class called Actions in the UI package. Then, I will change the visibility of inner classes to
 public and instantiate the Actions class in GraphicUI so I can instantiate these inner classes when adding buttons in GraphicUI class.
